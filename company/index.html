@@ -1,29 +1,45 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<title>🔒 기업분석</title>
-<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0f1320;color:#e8ebf2;
-font-family:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif}
-.box{width:min(380px,90vw);padding:28px;border-radius:18px;background:#181d2c;box-shadow:0 10px 40px rgba(0,0,0,.4)}
-h1{font-size:20px;margin:0 0 4px}p{color:#9aa3b5;font-size:14px;margin:0 0 16px}
-input[type=password]{width:100%;box-sizing:border-box;font-size:17px;padding:12px 14px;border-radius:10px;border:1px solid #2c3449;background:#0f1320;color:#fff}
-button{width:100%;margin-top:10px;font-size:16px;font-weight:700;padding:12px;border:0;border-radius:10px;background:#5b7cff;color:#fff;cursor:pointer}
-label{display:flex;gap:6px;align-items:center;font-size:13px;color:#9aa3b5;margin-top:12px}#e{color:#ff7b8a;min-height:18px;margin:10px 0 0}
-#w{display:none;color:#9aa3b5;font-size:14px}</style></head>
-<body><div class="box" id="g"><h1>🔒 개인 리포트</h1><p>기업분석</p>
-<form id="f"><input id="p" type="password" placeholder="암호" autocomplete="current-password" autofocus><button>열기</button></form>
-<label><input type="checkbox" id="r" checked> 이 기기에서 암호 기억</label><p id="e"></p></div>
-<p id="w">여는 중…</p>
-<script>
-const D={"salt": "iNlIX96gZCRGQ7Gbh/UtXQ==", "iv": "UcprQXk3xsm8ViXZ", "ct": "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", "it": 200000};
-const b=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
-async function dec(pw){const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
-const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b(D.salt),iterations:D.it,hash:"SHA-256"},k,{name:"AES-GCM",length:256},false,["decrypt"]);
-return new TextDecoder().decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:b(D.iv)},key,b(D.ct)));}
-async function go(pw,remember,auto){document.getElementById("w").style.display="block";
-try{const h=await dec(pw);try{if(remember)localStorage.setItem("hub-pw",pw);}catch(_){}
-const hash=location.hash;document.open();document.write(h);document.close();if(hash)setTimeout(()=>{location.hash="";location.hash=hash},50);}
-catch(err){document.getElementById("w").style.display="none";try{localStorage.removeItem("hub-pw")}catch(_){}
-if(!auto)document.getElementById("e").textContent="암호가 맞지 않습니다";}}
-document.getElementById("f").onsubmit=ev=>{ev.preventDefault();go(document.getElementById("p").value,document.getElementById("r").checked,false)};
-let s=null;try{s=localStorage.getItem("hub-pw")}catch(_){}if(s)go(s,true,true);
-</script></body></html>
+<title>기업분석</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#f4f6f9;--card:#fff;--tx:#151922;--mu:#677084;--ln:#e3e7ee;--ac:#3b5bdb;--ac2:#edf1ff;--up:#d6303a;--dn:#1f6fd6;--ok:#12805c;--okb:#e2f5ec;--warn:#b25e00;--warnb:#fff1dc;--bad:#c62f3a;--badb:#fde8ea}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1118;--card:#171b25;--tx:#e8ebf2;--mu:#98a1b3;--ln:#283041;--ac:#8ea7ff;--ac2:#1d2540;--up:#ff6b74;--dn:#6aa5ff;--ok:#4fd1a5;--okb:#15322a;--warn:#f1b45a;--warnb:#3a2c14;--bad:#ff7b86;--badb:#3a1b20}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 "Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+a{color:var(--ac);text-decoration:none}.wrap{max-width:980px;margin:0 auto;padding:0 16px}.wrap.wide{max-width:1180px}
+.muted{color:var(--mu)}.small{font-size:13px}
+.topbar{background:var(--card);border-bottom:1px solid var(--ln);font-size:14px;font-weight:600}.topbar .wrap{padding:10px 16px}
+h1{font-size:clamp(24px,4.5vw,32px);letter-spacing:-.02em;margin:22px 0 4px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:18px 20px;margin:14px 0;scroll-margin-top:12px}
+.card h2{font-size:20px;margin:0 0 8px}.card h3{font-size:16px;margin:14px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.chips a,.chip{font-size:13.5px;font-weight:600;background:var(--card);border:1px solid var(--ln);border-radius:99px;padding:3px 11px;color:var(--tx)}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;background:var(--ac2);color:var(--ac)}
+.tag.up{background:var(--badb);color:var(--up)}.tag.dn{background:#e6effc;color:var(--dn)}.tag.ok{background:var(--okb);color:var(--ok)}.tag.warn{background:var(--warnb);color:var(--warn)}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--ln);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--mu);font-weight:700;white-space:nowrap}td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+ul.tree{list-style:none;padding:0;margin:8px 0}ul.tree>li{position:relative;padding-left:16px;margin:8px 0}
+ul.tree>li::before{content:"";position:absolute;left:1px;top:.65em;width:7px;height:7px;border-radius:2px;background:var(--ac)}
+ul.tree .hd{font-weight:800}ul.tree ul{margin:3px 0 0;padding-left:18px}ul.tree ul li{font-size:15px;margin:2px 0}
+details{border:1px solid var(--ln);border-radius:10px;margin:10px 0;padding:0 12px}summary{cursor:pointer;font-weight:700;padding:8px 0}
+.foot{color:var(--mu);font-size:12.5px;text-align:center;padding:24px 16px 40px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0}
+.kpi{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px}.kpi b{display:block;font-size:24px;letter-spacing:-.01em}.kpi span{font-size:13px;color:var(--mu)}
+@media(max-width:640px){.card{padding:14px}}
+
+.grp h2{font-size:18px;margin:26px 0 10px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.tile{display:block;background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:16px 18px;color:var(--tx);transition:transform .12s,border-color .12s}
+.tile:hover{transform:translateY(-2px);border-color:var(--ac)}
+.tt{font-weight:800;font-size:17px}.td{font-size:13.5px;color:var(--mu);margin:2px 0 8px}
+.pv{font-size:14px;margin-bottom:6px}.tm{font-size:12.5px;color:var(--ac);font-weight:700}
+ul.arch{list-style:none;margin:0;padding:0}ul.arch li{border-bottom:1px solid var(--ln);padding:9px 0}
+ul.arch a{color:var(--tx);font-weight:600}.dt{display:inline-block;min-width:96px;color:var(--ac);font-size:13.5px}
+.sm{font-size:13.5px;color:var(--mu);margin:2px 0 0 96px}
+@media(max-width:640px){.sm{margin-left:0}}
+</style></head>
+<body><nav class="topbar"><div class="wrap"><a href="https://changhoonchoi-droid.github.io/">🏠 리포트 홈</a> › 기업분석</div></nav>
+<main class="wrap"><h1>기업분석</h1><p class="muted">@Corp_Anal_bot 에 기업명을 보내면 생성 · 3건</p><div class="card"><ul class="arch"><li><a href="https://changhoonchoi-droid.github.io/company-reports/r/005930-0492e378ab/"><span class="dt">2026-10-24</span>삼성전자 (005930)</a></li><li><a href="https://changhoonchoi-droid.github.io/company-reports/r/065710-a354fcfae4/"><span class="dt">2026-10-24</span>서호전기 (065710)</a></li><li><a href="https://changhoonchoi-droid.github.io/company-reports/r/339950-ca0f4a2e16/"><span class="dt">2026-10-24</span>아이비김영 (339950)</a></li></ul></div></main>
+<footer class="foot">AI 업무 리포트 · 2026-10-24 06:40 생성 · 투자 권유가 아닙니다</footer>
+</body></html>
