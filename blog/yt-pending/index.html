@@ -14,7 +14,7 @@ label{display:flex;gap:6px;align-items:center;font-size:13px;color:#9aa3b5;margi
 <label><input type="checkbox" id="r" checked> 이 기기에서 암호 기억</label><p id="e"></p></div>
 <p id="w">여는 중…</p>
 <script>
-const D={"salt": "3gT8C6QkY9VQKFDJBoQxyw==", "iv": "uUpOe/ZBJVQDjhlT", "ct": "itZ7SgJPDhoueqBf3u98Nel4nvrva6WtnYC89G8MUj/BucwsOJp2rNE/MrVNeLsayRJRMd+WiuUmScXWwaCxSLJ/EeDy4M9mYWB9jFwuC18DPNdymHv4TCMBsOBV3CwSfZsjZOvjpajMA48SE5+yHDNu7DscYw3iuRMmjCeJx5w/n5pov3f2a8mHTpHfDGcFuq6/MgXglPhwqzrW7WMgNayjB4FXTzzt0kjaFYKRHbDbZFgUsGFeoWWnuRXqz4U5QKRYZU+RzcUMKCEwk72ksBNbCJQCrTNRK4FbARZPCGewb2eOxggGFUcp7xmTltsiUXyLGb9wjavrsaJR5W2nP3uG0uC7CUEcHsKAPIyyLlaW2f/nl3clxj+GGUO6Q2TVVRG2pVkErLBoe8bl2dMomeqVO4eKu9qOAUTIo4pLOwZA7z74XzL+6IMfg6NocYOpbYnbiYYhXpNhLxpD3v/KJ4ffLqUz2ufa68kB5t8z2FQ582eH3EpFB24n/nWnU/35xTr8vViY2ml9ICY/RwiNDtE3T8ZfuRvm0lqe8BURY14if0KaCwpcsG8SIa5NflnHwElgpX0/djLSN/kJ+50P8mnuZTnTNi8F5G1oHbpnZlD9YqETLOONk6P+VQWeh6SxTVuXZDT7qMeyBhNNWq94WkapJFmBgph0MhJNnYiTDUFHar7foj+WnwcCinIfsAS8KsOfXuP2pbxrXqEHbFMCkNwiCPD8V6aAmkD1z4qJJfv5THZreeynu2z3aDAHWXxJq21ezPgzLmvb+5kwUIHWYiEMjtXMXXv+Lf+6VSQYirpfTCNeSV7VoetTOqQPcXNzAxp3Khrq2BBf28gf", "it": 200000, "k": "hub-pw"},K=D.k||"hub-pw";
+const D={"salt": "xJ5Mxd/4UCwFlbjRrpgrZQ==", "iv": "iSKXXvGgLltbN5XY", "ct": "/giUoqeTC7jVszf1fMbS7TMS9lPrT90M/Sc2F/5Y2QVrSK8gM+GGai2OYFj9H0FDE4ujImJrGxoluVvLiIGlpFAzVVHaxFK3R1sWRMjjp6GZczDuJSLuoxoyUS6ii9FQazmA4fU4nUoz6ICAvcSV4HzntPnZp8PiJo60oHcyIUfjr+SUvlqrQovP+tOtmKFNKnTnNG4NJzNYF3Ym6B8nlFTf5L6MafOXXL7jiWib3jcMvTup52TVVxSJtsN95SzuWvAe8ZjJ8qc+QSIOLxEw142EEm/kLTK+I9vLr2N6p3vPOBhtiHOqloT7mIy/gNshSwsH88HGQOxn+M2PnH+Qiy2ZkzVQQiy2ZVhNN91SlJKCVH/SdxE0GLlTVt1pBHbXIypStwFDGwPn4jfuKBJaG1hDJMFp8FpiSwlwcb+aoIgXWgHBL/ilesIJh9oVnybCFzf8X4KLytza+ucgxr6/7q6yxp1Hy/ZBhYl04yHHrIVW2iD50/S5NtsI/kA638X38lgO/IE6xf7AkUfM9q4cYlRsyN/UcZ+MDZEm3oIgEmvL6C40Cu4uJfUDNwofrknMmEby6IAthv86C+md+4hWxB6uapCGOPv7YDGBXlpvQV6vWd6ZUGM/MaWMqwka8JUoRf8lVdn4YoCis39+ILyO17wj2kGI6lhBYeT4hKQg3MT0ZkuYygRckFJBgAM6niIgJTKUgWFjiQhL5je5UHPGZZknpvsst2f3n2VxdmStSC2Njq/LO8KMr1FjolM+gX4y92/YYoZv3N5y1N1+egwFuKbxqIGENSq33vD7/u0v7XY2nUUrUEwMXryvhKIJPrndKVRIFHTCr98Q/i+1", "it": 200000, "k": "hub-pw"},K=D.k||"hub-pw";
 const b=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 async function dec(pw){const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
 const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b(D.salt),iterations:D.it,hash:"SHA-256"},k,{name:"AES-GCM",length:256},false,["decrypt"]);
@@ -29,4 +29,4 @@ if(!auto)document.getElementById("e").textContent="암호가 맞지 않습니다
 document.getElementById("f").onsubmit=ev=>{ev.preventDefault();go(document.getElementById("p").value,document.getElementById("r").checked,false)};
 let s=null;try{s=localStorage.getItem(K)}catch(_){}if(s)go(s,true,true);
 </script></body></html>
-<!-- build 1793756106 -->
+<!-- build 1793758963 -->
