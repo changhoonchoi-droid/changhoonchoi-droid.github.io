@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>블로그 업데이트 전/후</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#f4f6f9;--card:#fff;--tx:#151922;--mu:#677084;--ln:#e3e7ee;--ac:#3b5bdb;--ac2:#edf1ff;--up:#d6303a;--dn:#1f6fd6;--ok:#12805c;--okb:#e2f5ec;--warn:#b25e00;--warnb:#fff1dc;--bad:#c62f3a;--badb:#fde8ea}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1118;--card:#171b25;--tx:#e8ebf2;--mu:#98a1b3;--ln:#283041;--ac:#8ea7ff;--ac2:#1d2540;--up:#ff6b74;--dn:#6aa5ff;--ok:#4fd1a5;--okb:#15322a;--warn:#f1b45a;--warnb:#3a2c14;--bad:#ff7b86;--badb:#3a1b20}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 "Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+a{color:var(--ac);text-decoration:none}.wrap{max-width:980px;margin:0 auto;padding:0 16px}.wrap.wide{max-width:1180px}
+.muted{color:var(--mu)}.small{font-size:13px}
+.topbar{background:var(--card);border-bottom:1px solid var(--ln);font-size:14px;font-weight:600}.topbar .wrap{padding:10px 16px}
+h1{font-size:clamp(24px,4.5vw,32px);letter-spacing:-.02em;margin:22px 0 4px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:18px 20px;margin:14px 0;scroll-margin-top:12px}
+.card h2{font-size:20px;margin:0 0 8px}.card h3{font-size:16px;margin:14px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.chips a,.chip{font-size:13.5px;font-weight:600;background:var(--card);border:1px solid var(--ln);border-radius:99px;padding:3px 11px;color:var(--tx)}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;background:var(--ac2);color:var(--ac)}
+.tag.up{background:var(--badb);color:var(--up)}.tag.dn{background:#e6effc;color:var(--dn)}.tag.ok{background:var(--okb);color:var(--ok)}.tag.warn{background:var(--warnb);color:var(--warn)}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--ln);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--mu);font-weight:700;white-space:nowrap}td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+ul.tree{list-style:none;padding:0;margin:8px 0}ul.tree>li{position:relative;padding-left:16px;margin:8px 0}
+ul.tree>li::before{content:"";position:absolute;left:1px;top:.65em;width:7px;height:7px;border-radius:2px;background:var(--ac)}
+ul.tree .hd{font-weight:800}ul.tree ul{margin:3px 0 0;padding-left:18px}ul.tree ul li{font-size:15px;margin:2px 0}
+details{border:1px solid var(--ln);border-radius:10px;margin:10px 0;padding:0 12px}summary{cursor:pointer;font-weight:700;padding:8px 0}
+.foot{color:var(--mu);font-size:12.5px;text-align:center;padding:24px 16px 40px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0}
+.kpi{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px}.kpi b{display:block;font-size:24px;letter-spacing:-.01em}.kpi span{font-size:13px;color:var(--mu)}
+@media(max-width:640px){.card{padding:14px}}
+
+.tbl td.n,.tbl th.n{text-align:right;white-space:nowrap}
+.tbl td.up{color:var(--ok);font-weight:700}.tbl td.dn{color:var(--bad);font-weight:700}
+.sum{font-weight:800;background:var(--ac2)}
+.who{font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;background:var(--warnb);color:var(--warn);white-space:nowrap}
+.who.auto{background:var(--okb);color:var(--ok)}
+ol.how li{margin:6px 0}
+.job{border:1px solid var(--ln);border-radius:12px;padding:10px 14px;margin:8px 0}
+.job.total{background:var(--ac2);border-color:var(--ac)}
+.jh{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px;align-items:baseline}
+.cnt{font-size:14px;color:var(--mu)}.cnt b{color:var(--ac)}
+.job p{margin:4px 0 0;font-size:14.5px;color:var(--tx)}
+.box{border-left:4px solid var(--ac);background:var(--ac2);padding:10px 14px;border-radius:8px;margin:10px 0}
+.warnbox{border-left:4px solid var(--warn);background:var(--warnb);padding:10px 14px;border-radius:8px;margin:10px 0}
+</style></head>
+<body><nav class="topbar"><div class="wrap"><a href="https://changhoonchoi-droid.github.io/">🏠 리포트 홈</a> › 블로그 성장 리포트</div></nav>
+<main class="wrap">
+<h1>블로그 업무 업데이트 전/후</h1>
+<p class="muted">2026년 11월 7일 · 네이버 andichoi · 티스토리 quant-study · 블로그스팟 chemeer — 11/06 지시 '현재 진행중인 업무 대량 업데이트' 반영 결과</p>
+
+<section class="card">
+<h2>한눈에 보기 — 하루 자동 발행 새 글</h2>
+<div class="kpis">
+<div class="kpi"><b>27 → 약 17편</b><span>네이버 (−37%)</span></div>
+<div class="kpi"><b>7.4 → 0편</b><span>티스토리 새 글 (총정리 글 고치기로)</span></div>
+<div class="kpi"><b>9.4 → 약 2.5편</b><span>블로그스팟 (교육 중심)</span></div>
+<div class="kpi"><b>44 → 약 20편</b><span>세 블로그 합계</span></div>
+</div>
+<p>'전'은 11/01~11/04 실제 발행 수 평균(블로그 글 목록으로 직접 셈), '후'는 바뀐 일정과 규칙으로 계산한 예상치입니다.
+요청 글(텔레그램 봇으로 주문하는 글)은 양쪽에서 빼고 셌습니다. 글 수를 줄인 만큼 <b>글마다 깊이·검색어형 제목·목차·FAQ</b>를 더했고,
+티스토리는 새 글 대신 <b>계좌별 총정리 글을 고쳐 키우는</b> 방식으로 바뀌었습니다.</p>
+</section>
+
+<section class="card">
+<h2>① 네이버 — 업무별 발행 횟수</h2>
+<div class="job"><div class="jh"><b>자동 기업분석 (기업분석)</b><span class="cnt">전 최대 17회 · 실측 16.6편 → <b>후 4편</b></span></div><p>08:45·12:45·16:45·20:45. 밤 실행 없앰. prompt_기업분석.md 3단계(인사이트 발굴→본문→제목·자체 점검), 그래프는 최근 변화가 의미 있는 4~6장만 골라 장마다 인사이트 코멘트</p></div><div class="job"><div class="jh"><b>투자시장이야기 (투자관련 뉴스)</b><span class="cnt">전 3 → <b>후 3</b></span></div><p>변화 없음 (티스토리 발행만 끔)</p></div><div class="job"><div class="jh"><b>유튜브 45채널 경제 묶음 (투자관련 뉴스)</b><span class="cnt">전 3 → <b>후 3</b></span></div><p>유튜브요약 지침 적용 (요약 30% 이하·해석·부가 정보·FAQ), 티스토리 발행 끔</p></div><div class="job"><div class="jh"><b>노후연금 (연금 이야기)</b><span class="cnt">전 3 · 실측 2.4 → <b>후 3</b></span></div><p>변화 없음</p></div><div class="job"><div class="jh"><b>애널리스트 리포트 요약 (리포트 요약)</b><span class="cnt">전 3 · 실측 1.2 → <b>후 3</b></span></div><p>제목을 기업명 앞으로 (대괄호 머리 없앰)</p></div><div class="job"><div class="jh"><b>퀀트 전략 리포트 (퀀트리포트)</b><span class="cnt">전 매일 1 → <b>후 약 0.8 (바뀐 날만 + 금요일 주간)</b></span></div><p>상위 10에 새로 들어온·빠진 종목이 없으면 쓰지 않음. 바뀐 전략만 표로, 제목은 바뀐 종목. 금요일은 '이번 주 순위 변화'</p></div><div class="job"><div class="jh"><b>모아 보기 허브 글 (기업분석·연금 이야기)</b><span class="cnt">전 - → <b>후 새 글 최대 2 (처음 2주) · 고침 최대 3</b></span></div><p>업종별 '○○ 기업분석 모음'(24개 업종) + '연금 계좌별 정리', 새 글이 생기면 같은 주소로 고침 (매일 14:46). 첫 2편 발행: <a href='https://blog.naver.com/andichoi/224467857623'>연금 계좌별 정리</a> · <a href='https://blog.naver.com/andichoi/224467857766'>반도체 기업분석 모음(93편)</a></p></div><div class="job"><div class="jh"><b>직접 쓴 글 (투자관련 뉴스)</b><span class="cnt">전 - → <b>후 주 1~2편 (보내 주실 때)</b></span></div><p>블로그 글쓰기 봇에 '경험: …' 으로 보내면 그 메모만으로 1인칭 글</p></div><div class="job total"><div class="jh"><b>합계 (요청 글 제외)</b><span class="cnt">전 약 27편 → <b>후 약 17편</b></span></div><p>−37% · 허브 글을 만드는 첫 2주는 하루 최대 19편</p></div>
+<h3>카테고리 정리 (8개 안팎으로)</h3>
+<div class="tw"><table class="tbl"><thead><tr><th class="">전</th><th class="">후</th></tr></thead><tbody><tr><td class="">주식 Study + 업종 하위 35개 (372편)</td><td class=""><b>기업분석</b> 하나 — 업종 하위 글 372편 모두 기업분석으로 옮김(완료), 새 글은 업종을 태그 맨 앞에</td></tr><tr><td class="">리포트 요약 · 퀀트리포트 · 투자관련 뉴스 · 연금 이야기 · 외부정보 링크</td><td class="">그대로</td></tr><tr><td class="">투자에 대한 생각(5) · 주식농부 기업 Study(1) · 행복취미(6)</td><td class=""><b>글 12편 삭제 완료</b> (백업 보관). 빈 카테고리 상자는 삭제 승인 대기 — 아래 '확인이 필요한 것'</td></tr><tr><td class="">카테고리 41개</td><td class="">6개 (기업분석 · 리포트 요약 · 퀀트리포트 · 투자관련 뉴스 · 연금 이야기 · 외부정보 링크)</td></tr></tbody></table></div>
+<h3>모든 네이버 글 제목 — 사람이 검색하는 말로</h3>
+<p>공통 글쓰기 규칙에 넣어 모든 자동 글에 적용: 종목명·제도명을 맨 앞에, 물음이나 핵심 숫자를 함께, 대괄호 머리([퀀트 전략 리포트 11/06])는 없애고 날짜는 끝에.
+예) <i>[퀀트 전략 리포트 11/05] 여러 전략에 뽑힌 …</i> → <b>동원모빌리티 퀀트 상위 진입, 화승코퍼레이션 빠져 바뀐 전략 1개 (11/05)</b></p>
+</section>
+
+<section class="card">
+<h2>② 티스토리 — '은퇴 후 이야기' 한 주제로</h2>
+<div class="job"><div class="jh"><b>투자시장이야기 (시장이야기)</b><span class="cnt">전 3 → <b>후 0</b></span></div><p>티스토리 발행 끔 — 네이버로만</p></div><div class="job"><div class="jh"><b>유튜브 경제 묶음 (시장이야기)</b><span class="cnt">전 3 → <b>후 0</b></span></div><p>티스토리 발행 끔 — 네이버로만</p></div><div class="job"><div class="jh"><b>유튜브 세상이야기 묶음 (세상이야기)</b><span class="cnt">전 0~3 → <b>후 0</b></span></div><p>블로그에 올리지 않음 (주제 밖)</p></div><div class="job"><div class="jh"><b>노후연금 (은퇴 후 이야기)</b><span class="cnt">전 1 (새 글) → <b>후 새 글 0 · 총정리 글 만들기/고치기 하루 최대 2</b></span></div><p>계좌·제도별 '총정리' 글 하나씩(국민연금·개인연금·퇴직연금·IRP·ISA·주택연금·배당·세금 및 건보료·제도) — 처음 4~5일은 하루 2편씩 만들고, 그 뒤로는 새 소식이 생긴 총정리 글을 같은 주소로 고침</p></div><div class="job total"><div class="jh"><b>합계</b><span class="cnt">전 실측 7.4편 → <b>후 새 글 0 (총정리 글을 만드는 첫 며칠만 최대 2)</b></span></div><p>하루 발행 한도(15편)·확인 문제 부담도 크게 줄어듦</p></div>
+<ul>
+<li><b>삭제 완료</b>: 시장이야기 45편 · 세상이야기 15편 (60편, 백업 보관) · 두 카테고리 삭제. 남은 글 18편 (은퇴 후 이야기 17 · 미분류 1)</li>
+<li>블로그 설명을 '은퇴 후 이야기 — 계좌·제도별 총정리' 로 바꿈. 시험으로 만든 'IRP 총정리' 미리보기: 소제목 5개 · 근거 출처 · 최근 소식 · 자주 묻는 질문</li>
+<li>누적 방문 151명 · 조회 259회 (10/24~11/06, 관리 화면 통계)</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>③ 블로그스팟 — 교육이 메인</h2>
+<div class="job"><div class="jh"><b>트렌드 리포트 (사회·이슈)</b><span class="cnt">전 3 · 실측 4.8 → <b>후 0</b></span></div><p>블로그스팟 발행 끔 — 웹 리포트·텔레그램은 그대로</p></div><div class="job"><div class="jh"><b>골프 주간 리포트 (연예·스포츠)</b><span class="cnt">전 주 1 → <b>후 0</b></span></div><p>블로그스팟 발행 끔 — 웹 리포트만</p></div><div class="job"><div class="jh"><b>어린이 생각하는 질문 (교육)</b><span class="cnt">전 2 → <b>후 2</b></span></div><p>검색어형 제목 (예: '달은 왜 매일 모양이 바뀔까? 아이에게 설명하는 법 (5~7세·초등)'), '목차 — 연령별 질문 바로 가기', 질문마다 FAQ 1개(5개)</p></div><div class="job"><div class="jh"><b>AI 활용 따라하기 주간 (IT·테크)</b><span class="cnt">전 주 1 → <b>후 주 1</b></span></div><p>제목에서 시리즈 이름을 뒤로</p></div><div class="job"><div class="jh"><b>매불쇼 추천영화 (영화·드라마)</b><span class="cnt">전 주 1 → <b>후 주 1</b></span></div><p>그대로</p></div><div class="job"><div class="jh"><b>유튜브 단독·엮은 글 / 주제 글쓰기 (요청)</b><span class="cnt">전 요청 시 → <b>후 요청 시</b></span></div><p>교육·IT·영화 주제만 블로그스팟. 정치·사회·연예·스포츠는 블로그에 올리지 않음(정리 노트만). 유튜브요약 지침 적용</p></div><div class="job total"><div class="jh"><b>합계 (요청 글 제외)</b><span class="cnt">전 실측 약 9.4편 → <b>후 약 2.3편</b></span></div><p>교육 2 + 주간 글</p></div>
+<ul>
+<li><b>삭제 완료</b>: 사회·이슈·연예·스포츠 글 53편 (휴지통으로, 백업 보관). 남은 글 53편</li>
+<li>메뉴: <b>교육 → IT·테크 → 영화·드라마 → 블로그 소개</b> (라벨 페이지를 메뉴로)</li>
+<li>홈 화면: 머리 소개를 '아이와 함께 생각하는 질문'으로, 목록은 교육 글만(실제 사진 카드), 아래에 다른 주제 바로가기</li>
+<li>글 끝 '함께 읽으면 좋은 글'을 <b>같은 라벨 안에서 3편</b>으로</li>
+<li>'블로그 소개' 페이지와 블로그 설명을 교육 중심으로 다시 씀 (사실과 다르던 '운영자 승인 후 게시' 문구도 실제대로 고침). 시간대는 이미 서울로 되어 있음</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>④ 유튜브 요약 글 — prompt_유튜브요약.md 적용</h2>
+<p>요청 단독 글·여러 영상 엮은 글·45채널 묶음(네이버) 모두 지침 전체를 프롬프트에 붙입니다 (_공통지침/유튜브요약_지침.md).
+요약 30% 이하 · 해석·의견 30% 이상 · 부가 정보 20% 이상 · 실천 10~20% · 6장 제목 공식 · 도입부 아래와 글 끝 출처 문구 · 영상은 한 번만 · 자주 묻는 질문.</p>
+<div class="warnbox">자동 발행이라 지침의 '빠진 정보는 묻기'·'[작성자 의견] 빈칸'은 쓰지 않고, 경험을 지어내지 않는 '정리자의 관점'으로 채우도록 보충했습니다.
+또 지침대로 <b>도입부 아래 출처 문구</b>를 넣으므로, 10/25에 정한 '맨 위 출처 안내 문장 금지'는 유튜브 요약 글에서는 새 지침이 우선합니다.</div>
+</section>
+
+<section class="card">
+<h2>⑤ 직접 해 주셔야 할 일 (방법)</h2>
+<h3>티스토리 개인정보처리방침 페이지 <span class="who">사용자</span></h3>
+<ol class="how">
+<li>티스토리 관리 → 콘텐츠 → <b>페이지 관리</b> → '페이지 쓰기'</li>
+<li>제목 '개인정보처리방침', 편집기 오른쪽 위 '기본모드'를 <b>HTML</b>로 바꾸고, PC 의 <code>1_블로그/유튜브 블로그/pages/tistory_privacy.html</code> 내용을 붙여 넣기 (원고 준비해 둠)</li>
+<li>주소(슬러그)를 <code>privacy</code> 로 하고 공개 발행 → <code>quant-study.tistory.com/pages/privacy</code></li>
+</ol>
+<h3>티스토리 ads.txt 확인 <span class="who">사용자</span></h3>
+<ol class="how">
+<li>티스토리 관리 → 수익 → <b>애드센스 관리</b> — 연동되어 있으면 ads.txt 는 티스토리가 자동으로 둡니다</li>
+<li>확인: 브라우저에서 <code>https://quant-study.tistory.com/ads.txt</code> — <code>google.com, pub-…</code> 줄이 보이면 정상 (지금은 보이지 않음)</li>
+<li>안 보이면 애드센스 관리에서 연동을 해제했다가 다시 '연동하기' (같은 구글 계정)</li>
+<li>관리 화면 위쪽 '애드센스 앵커 광고 설정 확인 및 이용 제한 해제 안내' 공지도 확인해 주세요</li>
+</ol>
+<h3>구글 서치 콘솔 — 사이트맵 제출과 색인 생성 확인 <span class="who">사용자</span></h3>
+<ol class="how">
+<li><a href="https://search.google.com/search-console">search.google.com/search-console</a> → 속성 추가 → 'URL 접두어'에 <code>https://quant-study.tistory.com/</code> (블로그스팟은 <code>https://chemeer.blogspot.com/</code> — 블로거는 같은 구글 계정이면 자동 확인)</li>
+<li>티스토리 소유 확인: 'HTML 태그' 방식 → 받은 메타 태그를 티스토리 관리 → 플러그인 → '메타 태그 등록'에 넣고 확인</li>
+<li>왼쪽 <b>Sitemaps</b> → <code>sitemap.xml</code> 입력 → 제출 (블로그스팟도 <code>sitemap.xml</code>)</li>
+<li>왼쪽 <b>페이지 → 페이지 색인 생성</b> 보고서: '색인이 생성됨' 과 '생성되지 않음'(크롤링됨-현재 색인이 생성되지 않음 등) 숫자를 주 1회 확인. 지운 글 113편은 '찾을 수 없음(404)'으로 잡히는데 정상입니다</li>
+</ol>
+<h3>다음 웹마스터도구 (티스토리) <span class="who">사용자</span></h3>
+<ol class="how">
+<li><a href="https://webmaster.daum.net">webmaster.daum.net</a> → 사이트 등록 → <code>https://quant-study.tistory.com</code></li>
+<li>안내된 PIN 코드를 티스토리 관리 → 플러그인 → 메타 태그 등록(또는 robots.txt 안내 방식)으로 넣어 인증</li>
+<li>'수집 요청'에 사이트맵 <code>https://quant-study.tistory.com/sitemap.xml</code> 등록</li>
+</ol>
+<h3>네이버 서치어드바이저 — RSS 제출과 수집 현황 (주 1회) <span class="who">사용자</span></h3>
+<ol class="how">
+<li><a href="https://searchadvisor.naver.com">searchadvisor.naver.com</a> → 웹마스터 도구 → 사이트 등록에 <code>https://blog.naver.com/andichoi</code> (네이버 블로그는 별도 인증 없이 등록되는 경우가 많음)</li>
+<li>요청 → <b>RSS 제출</b>: <code>https://rss.blog.naver.com/andichoi.xml</code></li>
+<li>리포트 → <b>수집 현황</b>·검색 노출을 주 1회 확인 (모아 보기 글이 생긴 뒤 노출 변화를 보면 좋습니다)</li>
+</ol>
+<h3>Claude 로그인 (11/12~15에 끝남) <span class="who">사용자 · 중요</span></h3>
+<p>PC 에서 <code>claude setup-token</code> (무인 실행용) 또는 <code>claude auth login</code>. 하지 않으면 그때 모든 자동 글쓰기가 멈춥니다.</p>
+</section>
+
+<section class="card">
+<h2>⑥ 확인이 필요한 것</h2>
+<ul>
+<li><b>네이버 빈 카테고리 삭제</b> — 글을 지운 '투자에 대한 생각'·'주식농부 기업 Study'·'행복취미'와 그 위 '돈 이야기', 그리고 글을 다 옮긴 뒤 비는 업종 하위 카테고리 36곳은 상자만 남아 있습니다. 카테고리 삭제는 되돌릴 수 없는 작업이라 실행 단계에서 권한 확인에 걸려 멈췄습니다 — 승인해 주시면 지우겠습니다 (글이 0개인 카테고리만 지우도록 프로그램이 두 번 확인합니다).</li>
+<li><b>블로그스팟 'IT·테크', '영화·드라마'</b> — 지시문에 이름만 있고 할 일이 비어 있어 그대로 두었습니다 (메뉴 2·3번째). 지우거나 바꿀 계획이면 알려 주세요.</li>
+<li><b>티스토리 블로그 이름</b> '성장을추구하는투자자' — 이제 투자 글이 없어 '은퇴 후 이야기'와 맞지 않습니다. 이름을 바꿀지(예: '은퇴 후 이야기 — 연금 총정리') 정해 주세요.</li>
+<li><b>기존 기업분석 글 372편의 업종 태그</b> — 옛 글은 내용을 다시 붙여 넣어야 태그를 고칠 수 있어 건드리지 않았습니다 (대부분 이미 업종 낱말 태그가 있음). 업종은 모아 보기 글이 대신 묶어 줍니다.</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>⑦ 더 성장시키려면 (제안)</h2>
+<ul>
+<li><b>네이버 연금 글 중복 줄이기(적용함)</b> — 허브 글을 만들며 보니 '퇴직연금 의무화·IRP 한도 완화' 글이 4편 겹쳐 있었습니다. 최근 연금 글 제목을 글쓰기에 넘겨 같은 소식을 다시 주제로 삼지 않게 했습니다. <span class="who auto">적용 완료</span></li>
+<li><b>네이버 기업분석 '복기' 글</b> — prompt_기업분석.md 보너스: 몇 달 전에 분석한 종목을 다시 점검하는 글은 신뢰와 재방문을 늘립니다. 한 달에 2~4편, 예전 글이 있는 종목 중 주가·실적 변화가 큰 것부터 자동으로. <span class="who auto">지시 주시면 설정</span></li>
+<li><b>블로그스팟 교육 글 영어 주소(슬러그)·검색 설명</b>은 이미 들어가고 있습니다. 다음 단계로 <b>구글 애널리틱스 측정 ID</b>를 블로거 설정에 넣으면 어떤 질문이 검색으로 들어오는지 알 수 있습니다 (설정 칸이 비어 있음). <span class="who">사용자: GA4 속성 만들기</span></li>
+<li><b>티스토리 총정리 글을 메인에 고정</b> — 스킨 편집에서 홈 화면 상단에 총정리 글 9편을 카드로 고정하면 첫 방문자가 길을 잃지 않습니다. <span class="who auto">총정리 글이 다 만들어진 뒤 설정</span></li>
+<li><b>주간 성장 리포트 자동화</b> — 네이버 방문자(11/07부터 날마다 쌓는 중)·블로거 조회수·티스토리 통계를 주 1회 비교해 웹 리포트로. <span class="who auto">지시 주시면 설정</span></li>
+</ul>
+<p class="small muted">발행 수 '전'은 11/01~11/04 블로그 글 목록 실측 평균, '후'는 schedule.json 과 글쓰기 규칙에 따른 예상치입니다. 실제 발행은 자료가 모자라거나(연금·묶음 글) 발행 전 점검에 걸리면 더 적을 수 있습니다.</p>
+</section>
+</main>
+<footer class="foot">AI 업무 리포트 · 2026-11-07 01:51 생성 · 투자 권유가 아닙니다</footer>
+</body></html>
+<!-- build 1793983916 -->
