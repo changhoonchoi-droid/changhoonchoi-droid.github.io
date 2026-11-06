@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>블로그 성장 리포트</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#f4f6f9;--card:#fff;--tx:#151922;--mu:#677084;--ln:#e3e7ee;--ac:#3b5bdb;--ac2:#edf1ff;--up:#d6303a;--dn:#1f6fd6;--ok:#12805c;--okb:#e2f5ec;--warn:#b25e00;--warnb:#fff1dc;--bad:#c62f3a;--badb:#fde8ea}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1118;--card:#171b25;--tx:#e8ebf2;--mu:#98a1b3;--ln:#283041;--ac:#8ea7ff;--ac2:#1d2540;--up:#ff6b74;--dn:#6aa5ff;--ok:#4fd1a5;--okb:#15322a;--warn:#f1b45a;--warnb:#3a2c14;--bad:#ff7b86;--badb:#3a1b20}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 "Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
+a{color:var(--ac);text-decoration:none}.wrap{max-width:980px;margin:0 auto;padding:0 16px}.wrap.wide{max-width:1180px}
+.muted{color:var(--mu)}.small{font-size:13px}
+.topbar{background:var(--card);border-bottom:1px solid var(--ln);font-size:14px;font-weight:600}.topbar .wrap{padding:10px 16px}
+h1{font-size:clamp(24px,4.5vw,32px);letter-spacing:-.02em;margin:22px 0 4px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:18px 20px;margin:14px 0;scroll-margin-top:12px}
+.card h2{font-size:20px;margin:0 0 8px}.card h3{font-size:16px;margin:14px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.chips a,.chip{font-size:13.5px;font-weight:600;background:var(--card);border:1px solid var(--ln);border-radius:99px;padding:3px 11px;color:var(--tx)}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;background:var(--ac2);color:var(--ac)}
+.tag.up{background:var(--badb);color:var(--up)}.tag.dn{background:#e6effc;color:var(--dn)}.tag.ok{background:var(--okb);color:var(--ok)}.tag.warn{background:var(--warnb);color:var(--warn)}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--ln);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--mu);font-weight:700;white-space:nowrap}td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+ul.tree{list-style:none;padding:0;margin:8px 0}ul.tree>li{position:relative;padding-left:16px;margin:8px 0}
+ul.tree>li::before{content:"";position:absolute;left:1px;top:.65em;width:7px;height:7px;border-radius:2px;background:var(--ac)}
+ul.tree .hd{font-weight:800}ul.tree ul{margin:3px 0 0;padding-left:18px}ul.tree ul li{font-size:15px;margin:2px 0}
+details{border:1px solid var(--ln);border-radius:10px;margin:10px 0;padding:0 12px}summary{cursor:pointer;font-weight:700;padding:8px 0}
+.foot{color:var(--mu);font-size:12.5px;text-align:center;padding:24px 16px 40px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0}
+.kpi{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px}.kpi b{display:block;font-size:24px;letter-spacing:-.01em}.kpi span{font-size:13px;color:var(--mu)}
+@media(max-width:640px){.card{padding:14px}}
+
+.bars{display:flex;gap:4px;align-items:flex-end;height:150px;margin:10px 0 2px;padding-bottom:34px;position:relative}
+.bc{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative;min-width:0}
+.bc i{display:block;width:100%;max-width:26px;background:var(--ac);border-radius:4px 4px 0 0}
+.bc:hover i{filter:brightness(1.25)}
+.bc em{font-style:normal;font-size:11px;color:var(--mu);line-height:1.2;order:-1}
+.bc s{text-decoration:none;position:absolute;bottom:-30px;font-size:10.5px;color:var(--mu);white-space:nowrap;transform:rotate(-45deg);transform-origin:top center}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.verdict>div{border:1px solid var(--ln);border-radius:12px;padding:12px 14px}
+.verdict h3{margin:0 0 4px!important}
+.alert{border-left:4px solid var(--bad);background:var(--badb)}
+.good{border-left:4px solid var(--ok)}
+.step{counter-reset:s;list-style:none;padding:0}.step li{counter-increment:s;position:relative;padding-left:34px;margin:10px 0}
+.step li::before{content:counter(s);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--ac);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.who{font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;margin-left:4px;background:var(--warnb);color:var(--warn)}
+.who.auto{background:var(--okb);color:var(--ok)}
+</style></head>
+<body><nav class="topbar"><div class="wrap"><a href="https://changhoonchoi-droid.github.io/">🏠 리포트 홈</a> › 블로그 성장 리포트</div></nav>
+<main class="wrap">
+<h1>블로그 성장 리포트</h1>
+<p class="muted">2026년 11월 06일 기준 · 네이버 andichoi · 티스토리 quant-study · 블로그스팟 chemeer — 공개 자료와 블로그 API 로 직접 센 숫자입니다.</p>
+
+<section class="card">
+<h2>한눈에 보기</h2>
+<div class="kpis">
+<div class="kpi"><b>521편</b><span>네이버 전체 글</span></div>
+<div class="kpi"><b>22편/일</b><span>네이버 자동 발행 (10/24~)</span></div>
+<div class="kpi"><b>325명</b><span>네이버 하루 방문자 (최근 평균)</span></div>
+<div class="kpi"><b>0/12</b><span>네이버 검색 첫 페이지 노출 (표본)</span></div>
+<div class="kpi"><b>76편</b><span>티스토리 전체 글</span></div>
+<div class="kpi"><b>106편</b><span>블로그스팟 전체 글</span></div>
+<div class="kpi"><b>272회</b><span>블로그스팟 30일 조회수</span></div>
+<div class="kpi"><b>0개</b><span>블로그스팟 댓글</span></div>
+</div>
+<p>세 블로그 모두 <b>10월 24~25일 자동 발행을 시작한 지 2주</b> 된 상태입니다. 글은 하루 40편 가까이 쏟아지는데, 들어오는 사람은
+네이버 하루 300명대, 블로그스팟 하루 10명 안팎입니다. 숫자가 말해 주는 핵심은 하나입니다.
+<b>지금은 '글 수'가 아니라 '검색에 걸리고 다시 찾아오게 만드는 글'이 부족합니다.</b></p>
+<div class="verdict">
+<div class="alert"><h3>🚨 11/05~06 자동 글쓰기가 멈췄던 일 (해결)</h3>Claude 기본 모델 사용 한도가 차서 이틀 동안 자동 글이 거의 나오지 않았습니다.
+네이버 방문자도 같은 날 <b>314명 → 175명</b>으로 떨어졌습니다 — 방문이 검색보다 '새 글'에 기대고 있다는 뜻입니다. 11/06 밤 자동 업무 모델을 Sonnet 5.5 로 바꿔 다시 돌게 했습니다.</div>
+<div class="good"><h3>👍 잘 되고 있는 것</h3>주제별로 블로그를 나눈 구조(네이버 투자 · 티스토리 시장·은퇴 · 블로그스팟 생활·교육·IT), 소제목마다 사진·영상, 발행 전 자동 점검,
+블로그스팟 개인정보처리방침·ads.txt·애드센스 코드, 티스토리 애드센스 코드까지 기본 틀은 갖춰졌습니다.</div>
+</div>
+</section>
+
+<section class="card">
+<h2>날마다 올라간 글 수 (최근 14일)</h2>
+<h3>네이버</h3><div class="bars"><div class="bc" title="10/24 · 24편"><i style="height:75%"></i><em>24</em><s>10/24</s></div><div class="bc" title="10/25 · 19편"><i style="height:59%"></i><em>19</em><s>10/25</s></div><div class="bc" title="10/26 · 22편"><i style="height:69%"></i><em>22</em><s>10/26</s></div><div class="bc" title="10/27 · 25편"><i style="height:78%"></i><em>25</em><s>10/27</s></div><div class="bc" title="10/28 · 27편"><i style="height:84%"></i><em>27</em><s>10/28</s></div><div class="bc" title="10/29 · 26편"><i style="height:81%"></i><em>26</em><s>10/29</s></div><div class="bc" title="10/30 · 26편"><i style="height:81%"></i><em>26</em><s>10/30</s></div><div class="bc" title="10/31 · 23편"><i style="height:72%"></i><em>23</em><s>10/31</s></div><div class="bc" title="11/01 · 32편"><i style="height:100%"></i><em>32</em><s>11/01</s></div><div class="bc" title="11/02 · 29편"><i style="height:91%"></i><em>29</em><s>11/02</s></div><div class="bc" title="11/03 · 29편"><i style="height:91%"></i><em>29</em><s>11/03</s></div><div class="bc" title="11/04 · 22편"><i style="height:69%"></i><em>22</em><s>11/04</s></div><div class="bc" title="11/05 · 8편"><i style="height:25%"></i><em>8</em><s>11/05</s></div><div class="bc" title="11/06 · 1편"><i style="height:3%"></i><em>1</em><s>11/06</s></div></div>
+<h3>티스토리</h3><div class="bars"><div class="bc" title="10/24 · 0편"><i style="height:2%"></i><em></em><s>10/24</s></div><div class="bc" title="10/25 · 17편"><i style="height:100%"></i><em>17</em><s>10/25</s></div><div class="bc" title="10/26 · 13편"><i style="height:76%"></i><em>13</em><s>10/26</s></div><div class="bc" title="10/27 · 4편"><i style="height:24%"></i><em>4</em><s>10/27</s></div><div class="bc" title="10/28 · 0편"><i style="height:2%"></i><em></em><s>10/28</s></div><div class="bc" title="10/29 · 0편"><i style="height:2%"></i><em></em><s>10/29</s></div><div class="bc" title="10/30 · 0편"><i style="height:2%"></i><em></em><s>10/30</s></div><div class="bc" title="10/31 · 5편"><i style="height:29%"></i><em>5</em><s>10/31</s></div><div class="bc" title="11/01 · 5편"><i style="height:29%"></i><em>5</em><s>11/01</s></div><div class="bc" title="11/02 · 7편"><i style="height:41%"></i><em>7</em><s>11/02</s></div><div class="bc" title="11/03 · 14편"><i style="height:82%"></i><em>14</em><s>11/03</s></div><div class="bc" title="11/04 · 6편"><i style="height:35%"></i><em>6</em><s>11/04</s></div><div class="bc" title="11/05 · 4편"><i style="height:24%"></i><em>4</em><s>11/05</s></div><div class="bc" title="11/06 · 1편"><i style="height:6%"></i><em>1</em><s>11/06</s></div></div><p class="small muted">사이트맵의 마지막 수정일 기준이라 고친 글은 고친 날로 잡힙니다.</p>
+<h3>블로그스팟</h3><div class="bars"><div class="bc" title="10/24 · 0편"><i style="height:2%"></i><em></em><s>10/24</s></div><div class="bc" title="10/25 · 12편"><i style="height:92%"></i><em>12</em><s>10/25</s></div><div class="bc" title="10/26 · 13편"><i style="height:100%"></i><em>13</em><s>10/26</s></div><div class="bc" title="10/27 · 6편"><i style="height:46%"></i><em>6</em><s>10/27</s></div><div class="bc" title="10/28 · 5편"><i style="height:38%"></i><em>5</em><s>10/28</s></div><div class="bc" title="10/29 · 7편"><i style="height:54%"></i><em>7</em><s>10/29</s></div><div class="bc" title="10/30 · 9편"><i style="height:69%"></i><em>9</em><s>10/30</s></div><div class="bc" title="10/31 · 10편"><i style="height:77%"></i><em>10</em><s>10/31</s></div><div class="bc" title="11/01 · 13편"><i style="height:100%"></i><em>13</em><s>11/01</s></div><div class="bc" title="11/02 · 9편"><i style="height:69%"></i><em>9</em><s>11/02</s></div><div class="bc" title="11/03 · 8편"><i style="height:62%"></i><em>8</em><s>11/03</s></div><div class="bc" title="11/04 · 7편"><i style="height:54%"></i><em>7</em><s>11/04</s></div><div class="bc" title="11/05 · 0편"><i style="height:2%"></i><em></em><s>11/05</s></div><div class="bc" title="11/06 · 0편"><i style="height:2%"></i><em></em><s>11/06</s></div></div>
+<h3>네이버 하루 방문자</h3><div class="bars"><div class="bc" title="11/02 · 338명"><i style="height:100%"></i><em>338</em><s>11/02</s></div><div class="bc" title="11/03 · 324명"><i style="height:96%"></i><em>324</em><s>11/03</s></div><div class="bc" title="11/04 · 314명"><i style="height:93%"></i><em>314</em><s>11/04</s></div><div class="bc" title="11/05 · 175명"><i style="height:52%"></i><em>175</em><s>11/05</s></div></div><p class="small muted">네이버는 최근 5일치만 공개합니다. 오늘부터 날마다 쌓아 두므로 다음 리포트부터 기간이 길어집니다.</p>
+</section>
+
+<section class="card" id="naver">
+<h2>① 네이버 블로그 — 주식투자 (andichoi)</h2>
+<div class="tw"><table><thead><tr><th>항목</th><th>지금</th><th>판단</th></tr></thead><tbody><tr><td>전체 글</td><td>521편 (직접 쓴 글 208 · 자동 313)</td><td>양은 충분</td></tr><tr><td>자동 발행 속도</td><td>하루 약 22편</td><td><span class="tag up">너무 많음</span></td></tr><tr><td>카테고리</td><td>45개 (5편 이하 15개)</td><td><span class="tag warn">너무 잘게 나뉨</span></td></tr><tr><td>검색 노출 표본</td><td>최근 글 12편 제목 그대로 검색 → 첫 페이지 0편</td><td><span class="tag up">약함</span></td></tr><tr><td>같은 제목 반복</td><td>'[퀀트 전략 리포트 11/06] 여러 전략에 뽑힌 액토즈소프트…' 11번</td><td><span class="tag warn">고칠 것</span></td></tr></tbody></table></div>
+<h3>최근 2주 많이 올린 카테고리</h3>
+<p>투자관련 뉴스 33 · 리포트 요약 19 · 반도체 16 · 기계로봇 14 · 유통 12 · 의료기기 12 · 연금 이야기 12 · 화학 12 · 퀀트리포트 11 · 철강금속 11</p>
+<h3>진단</h3>
+<ul><li><b>양이 신뢰를 깎고 있습니다.</b> 네이버는 블로그를 '한 사람이 꾸준히 깊게 쓰는 곳'인지(C-Rank)와 글 하나가 질문에 잘 답하는지(D.I.A.)로 평가합니다. 하루 20~30편이 기계적으로 올라오면 글마다 검색 순위가 낮게 잡히고, 아주 구체적인 제목으로 찾아도 첫 페이지에 거의 나오지 않습니다.</li><li><b>카테고리가 45개로 흩어져 있습니다.</b> 업종별 카테고리 대부분이 몇 편뿐이라 '이 블로그는 무엇을 잘 쓰는 곳인가'가 흐려집니다.</li><li><b>매일 같은 제목의 퀀트 리포트</b>가 쌓입니다 (뽑힌 종목이 그대로면 제목·내용이 거의 같음) — 네이버가 '유사 문서'로 묶어 노출을 줄이는 대표적인 경우입니다.</li><li><b>방문이 새 글에 기대고 있습니다.</b> 발행이 멈춘 11/05 방문자가 절반으로 떨어졌습니다. 검색으로 꾸준히 들어오는 '오래 읽히는 글'이 적다는 뜻입니다.</li><li>직접 쓴 글('투자에 대한 생각'·'주식농부 기업 Study')이 10월 이후 거의 없습니다. 네이버 AI 브리핑 5원칙의 첫째가 '직접 경험한 지식'입니다.</li></ul>
+<h3>성장 방안</h3>
+<ol class="step">
+<li><b>하루 발행을 8~12편으로 줄이고 글마다 깊이를 더합니다.</b> 줄이는 순서: 자동 기업분석(낮 8회+밤 9회) → 퀀트 리포트(순위가 바뀐 날만) → 45채널 묶음(하루 3 → 1). <span class="who auto">자동 설정</span></li>
+<li><b>퀀트 리포트는 '바뀐 것'이 제목이 되게</b> — 새로 들어온 종목·빠진 종목이 없으면 그날은 쓰지 않고, 주 1회 '이번 주 순위 변화'로 묶습니다. <span class="who auto">자동 설정</span></li>
+<li><b>카테고리를 8개 안팎으로 합칩니다</b> — 예: 기업분석(업종은 태그로) · 리포트 요약 · 퀀트 · 투자관련 뉴스 · 연금 이야기 · 투자에 대한 생각 · 주식농부 Study · 행복취미. 업종 카테고리 글은 옮기고 태그로 남깁니다. <span class="who">사용자 승인</span></li>
+<li><b>제목을 '사람이 검색하는 말'로</b> — '종목명 + 궁금한 점'(예: "코나아이 배당 계속 줄까, 3분기 실적으로 본 답")처럼 종목명을 앞에, 숫자·물음을 넣고 대괄호 머리([퀀트 전략 리포트 11/06])는 뒤로 뺍니다. <span class="who auto">자동 설정</span></li>
+<li><b>일주일에 1~2편은 직접 쓴 글</b> — 실제 매매·생각·실패담 몇 줄만 텔레그램으로 보내 주시면 블로그 글쓰기 봇이 정리합니다. 자동 글이 줄 수 없는 '경험'이 블로그 전체 신뢰를 올립니다. <span class="who">사용자</span></li>
+<li><b>모아 보기 글(허브 글)</b>을 만듭니다 — '반도체 기업 분석 모음', '연금 계좌별 정리' 처럼 기존 글을 묶어 링크하는 글을 업종·주제마다 하나씩 두고 새 글이 생기면 갱신합니다. <span class="who auto">자동 설정</span></li>
+<li>네이버 서치어드바이저에서 블로그 RSS 를 제출하고 '수집 현황'을 주 1회 봅니다. 이웃(같은 주제 블로그)과 댓글·공감 교류도 C-Rank 에 도움이 됩니다. <span class="who">사용자</span></li>
+</ol>
+<details><summary>검색 노출 표본 12편 보기</summary>
+<div class="tw"><table><thead><tr><th>글 제목</th><th>카테고리</th><th>첫 페이지</th></tr></thead><tbody><tr><td>[퀀트 전략 리포트 11/06] 여러 전략에 뽑힌 액토즈소프트, 오성첨단소재, 삼성전자</td><td>퀀트리포트</td><td>—</td></tr><tr><td>중간선거 민주당 우세·외국인 2조 매도, 투자자가 지금 볼 리포트 다섯 가지</td><td>투자관련 뉴스</td><td>—</td></tr><tr><td>블루콤 기업분석: 이어폰 회사에서 임대회사로, 206억의 쓰임새</td><td>전자제품</td><td>—</td></tr><tr><td>금호에이치티, PBR 0.25배 자산주에 할인이 붙는 이유</td><td>자동차</td><td>—</td></tr><tr><td>11월 2일 증시: 기관이 지킨 5,800선과 반도체 수출 49%</td><td>투자관련 뉴스</td><td>—</td></tr><tr><td>금강철강 분석: 현금 922억원과 얇은 본업 이익</td><td>철강금속</td><td>—</td></tr><tr><td>코칩 기업분석: 2분기 이익률 24.5%, 지속될까</td><td>전자부품</td><td>—</td></tr><tr><td>금양그린파워 분석: 매출 49% 성장, 이익은 왜 얇을까</td><td>에너지</td><td>—</td></tr><tr><td>브이씨(365900), 2분기 흑자 전환 뒤 확인할 것들</td><td>생활용품</td><td>—</td></tr><tr><td>대성창투 기업분석: PBR 0.37배와 무배당 사이</td><td>금융</td><td>—</td></tr><tr><td>한스바이오메드, 셀르디엠 흑자 전환과 남은 변수</td><td>의료기기</td><td>—</td></tr><tr><td>[증권사 리포트 요약 10/28 저녁] SK하이닉스, HD현대일렉트릭, 두산테스나, 디아이, 엘티씨 6건</td><td>리포트 요약</td><td>—</td></tr></tbody></table></div>
+<p class="small muted">네이버 블로그 검색에 제목을 그대로 넣어 첫 페이지(약 30개)에 이 글이 있는지만 본 간이 검사입니다.</p></details>
+</section>
+
+<section class="card" id="tistory">
+<h2>② 티스토리 — 시장·경제 + 은퇴 후 이야기 (quant-study)</h2>
+<div class="tw"><table><thead><tr><th>항목</th><th>지금</th><th>판단</th></tr></thead><tbody><tr><td>전체 글</td><td>76편 (10/25 시작)</td><td>보통</td></tr><tr><td>최근 글 카테고리</td><td>시장이야기 5 · 은퇴 후 이야기 3 · 세상이야기 2</td><td></td></tr><tr><td>아주 긴 묶음 글</td><td>최근 10편 중 3편이 3만 자 넘음 (최대 124,515자)</td><td><span class="tag up">너무 김</span></td></tr><tr><td>비슷한 제목</td><td>'[퇴직연금] 퇴직급여 사외적립 의무화와 기금형 퇴직연금, 이번 주 퇴직연…' 3편<br>'[국민연금] 국민연금 리밸런싱 유예 논란과 적용 제외자 667만명 편입 …' 2편</td><td><span class="tag warn">고칠 것</span></td></tr><tr><td>애드센스 코드</td><td><span class="tag ok">있음</span></td><td></td></tr><tr><td>개인정보처리방침</td><td><span class="tag up">없음</span></td><td><span class="tag up">애드센스 필수</span></td></tr><tr><td>ads.txt</td><td><span class="tag up">없음</span></td><td><span class="tag warn">수익 손실 가능</span></td></tr></tbody></table></div>
+<h3>진단</h3>
+<ul><li><b>유튜브 25~32편을 한 글에 몰아 담은 묶음 글</b>이 10만 자를 넘습니다. 구글·다음은 '한 글 = 한 주제'를 좋아하고, 너무 긴 글은 끝까지 읽히지 않아 체류 신호도 나빠집니다. 검색어 하나에 딱 맞는 글이 되지 못합니다.</li><li><b>은퇴 후 이야기에서 거의 같은 제목이 이틀 사이 2~3편</b> 나왔습니다 (퇴직연금 사외적립 의무화, 국민연금 리밸런싱). 같은 소식을 반복하면 중복 문서로 묶입니다.</li><li>개인정보처리방침이 없으면 애드센스 심사에서 막히거나 광고가 제한될 수 있고, ads.txt 가 없으면 광고 수익 일부가 빠질 수 있습니다.</li></ul>
+<h3>성장 방안</h3>
+<ol class="step">
+<li><b>묶음 글을 주제별 글로 쪼갭니다</b> — 25편짜리 한 글 대신 '반도체', '부동산', '연금'처럼 주제가 같은 영상 3~5편씩 묶어 2,500~4,000자 글 몇 편으로. 하루 공개 15편 한도 안에서 운영합니다. <span class="who auto">자동 설정</span></li>
+<li><b>노후연금 중복 막기</b> — 최근 7일 안에 같은 제도·소식을 다룬 글이 있으면 새 글을 쓰지 않고 기존 글에 '업데이트' 문단을 더합니다. <span class="who auto">자동 설정</span></li>
+<li><b>개인정보처리방침 페이지</b>를 만들고(관리 → 콘텐츠 → 페이지), 애드센스 연동 화면에서 ads.txt 를 확인합니다. <span class="who">사용자 (초안은 만들어 드림)</span></li>
+<li>'은퇴 후 이야기'를 이 블로그의 간판으로 — 국민연금·IRP·ISA·주택연금처럼 오래 검색되는 주제라 시간이 지날수록 방문이 쌓입니다. 계좌별 '총정리' 글을 하나씩 두고 새 소식이 생기면 그 글을 고칩니다. <span class="who auto">자동 설정</span></li>
+<li>구글 서치 콘솔·다음 웹마스터도구에서 사이트맵 제출과 '색인 생성' 상태를 확인합니다. <span class="who">사용자</span></li>
+</ol>
+</section>
+
+<section class="card" id="blogspot">
+<h2>③ 블로그스팟 — 생활·문화·IT·교육 (Chemeer)</h2>
+<div class="tw"><table><thead><tr><th>항목</th><th>지금</th><th>판단</th></tr></thead><tbody><tr><td>전체 글</td><td>106편 (최근 14일 99편)</td><td>보통</td></tr><tr><td>조회수</td><td>7일 81회 · 30일 272회 (글 1편당 약 2.6회)</td><td><span class="tag up">매우 낮음</span></td></tr><tr><td>댓글</td><td>0개</td><td><span class="tag warn">없음</span></td></tr><tr><td>라벨(주제)</td><td>사회·이슈 45 · IT·테크 33 · 교육 9 · 영화·드라마 7 · 연예·스포츠 5</td><td><span class="tag warn">사회·이슈 쏠림</span></td></tr><tr><td>평균 글 길이</td><td>8,110자</td><td>좋음</td></tr><tr><td>애드센스·ads.txt·개인정보처리방침</td><td><span class="tag ok">있음</span> <span class="tag ok">있음</span> <span class="tag ok">있음</span></td><td><span class="tag ok">갖춤</span></td></tr></tbody></table></div>
+<h3>진단</h3>
+<ul><li><b>구글에서 거의 찾아지지 않습니다.</b> 새 블로그는 구글이 믿기까지 몇 달이 걸리는데, 그 사이 같은 형식의 자동 글이 하루 9~10편 올라오면 구글의 '대량 생산 콘텐츠' 기준에 걸릴 위험이 커집니다.</li><li><b>절반이 '오늘의 트렌드'(사회·이슈)</b>입니다. 뉴스·화제 글은 하루 이틀이면 검색이 끝나고, 언론사·포털이 위에 있어 새 블로그가 이기기 어렵습니다.</li><li>반대로 <b>'연령별 생각하는 질문'(교육)과 IT 원리·따라하기</b>는 몇 달 동안 검색되는 주제입니다. 애드센스 단가도 교육·IT 가 사회 이슈보다 높은 편입니다.</li></ul>
+<h3>성장 방안</h3>
+<ol class="step">
+<li><b>트렌드 글을 하루 3편 → 1편</b>(저녁 정리)으로 줄이고, 비운 자리를 교육·IT '오래 읽히는 글'로 채웁니다. <span class="who auto">자동 설정</span></li>
+<li><b>교육 글은 검색어형 제목</b> — "달은 왜 매일 모양이 바뀔까? 아이에게 설명하는 법 (5~7세·초등)"처럼 부모가 실제로 치는 말과 연령을 제목에. 질문마다 따로 찾아오도록 목차·FAQ 를 붙입니다. <span class="who auto">자동 설정</span></li>
+<li><b>라벨 페이지를 메뉴로</b> 쓰고, 글 끝 '함께 읽으면 좋은 글'을 같은 라벨 안에서 3편씩 연결해 한 번 온 사람이 더 읽게 합니다. <span class="who auto">자동 설정</span></li>
+<li>구글 서치 콘솔에서 '페이지 색인 생성' 보고서를 확인합니다 — 색인되지 않은 글이 많으면 발행 수를 더 줄입니다. <span class="who">사용자</span></li>
+</ol>
+</section>
+
+<section class="card" id="common">
+<h2>세 블로그 공통 — 이번 달 실행 계획</h2>
+<div class="tw"><table><thead><tr><th>언제</th><th>할 일</th><th>누가</th></tr></thead><tbody><tr><td>이번 주</td><td>발행량 줄이기(네이버 8~12 · 티스토리 6~8 · 블로그스팟 5~6편/일) · 퀀트 리포트 '바뀐 날만' · 연금 중복 막기</td><td><span class="who auto">자동 설정</span></td></tr><tr><td>이번 주</td><td>티스토리 개인정보처리방침 · 세 블로그 서치 콘솔/서치어드바이저 사이트맵 확인</td><td><span class="who">사용자</span></td></tr><tr><td>2주 안</td><td>네이버 카테고리 합치기 · 티스토리 묶음 글 주제별로 쪼개기 · 검색어형 제목 규칙</td><td><span class="who auto">자동 설정</span> + 승인</td></tr><tr><td>한 달</td><td>주제별 모아 보기(허브) 글 · 직접 쓴 글 주 1~2편 · 주간 블로그 성장 리포트 자동화(방문·노출 추이)</td><td><span class="who auto">자동</span> + <span class="who">사용자</span></td></tr></tbody></table></div>
+<p>발행량을 줄이면 Claude 사용량도 함께 줄어 이번처럼 사용 한도에 걸려 모든 글이 멈추는 일도 막을 수 있습니다.
+'자동 설정'이라고 적힌 항목은 지시만 주시면 바로 바꿀 수 있습니다.</p>
+<p class="small muted">방문자·조회수: 네이버 공개 방문자 집계(최근 5일), 블로거 API 조회수. 티스토리 방문자는 로그인한 관리 화면에서만 보여 이번 리포트에서 빠졌습니다.
+검색 순위 원리(C-Rank·D.I.A.·구글 대량 생산 콘텐츠 기준)는 각 회사가 공개한 설명과 널리 알려진 운영 경험을 바탕으로 정리한 것이며, 정확한 알고리즘은 공개되어 있지 않습니다.</p>
+</section>
+</main>
+<footer class="foot">AI 업무 리포트 · 2026-11-06 23:10 생성 · 투자 권유가 아닙니다</footer>
+</body></html>
+<!-- build 1793974255 -->
