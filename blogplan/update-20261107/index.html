@@ -101,41 +101,37 @@ ol.how li{margin:6px 0}
 </section>
 
 <section class="card">
-<h2>⑤ 직접 해 주셔야 할 일 (방법)</h2>
-<h3>티스토리 개인정보처리방침 페이지 <span class="who">사용자</span></h3>
+<h2>⑤ 직접 해 주셔야 할 일 (11/07 수정 — 실제 화면으로 확인)</h2>
+<h3>1. Claude 토큰 <span class="who">기한 11/12</span></h3>
 <ol class="how">
-<li>티스토리 관리 → 콘텐츠 → <b>페이지 관리</b> → '페이지 쓰기'</li>
-<li>제목 '개인정보처리방침', 편집기 오른쪽 위 '기본모드'를 <b>HTML</b>로 바꾸고, PC 의 <code>1_블로그/유튜브 블로그/pages/tistory_privacy.html</code> 내용을 붙여 넣기 (원고 준비해 둠)</li>
-<li>주소(슬러그)를 <code>privacy</code> 로 하고 공개 발행 → <code>quant-study.tistory.com/pages/privacy</code></li>
+<li>VS Code 터미널(PowerShell)에서 실행: <code>&amp; (Get-ChildItem "$env:USERPROFILE\.vscode\extensions\anthropic.claude-code-*\resources\native-binary\claude.exe" | Sort-Object LastWriteTime | Select-Object -Last 1).FullName setup-token</code></li>
+<li>브라우저에서 승인하면 터미널에 토큰이 나옵니다. 다른 곳(채팅·메모)에 붙여 넣지 마세요.</li>
+<li>저장: <code>Set-Content "E:\! 바이브코딩\_공통지침\.claude_oauth_token" "받은토큰"</code></li>
+<li>확인: <code>python "E:\! 바이브코딩\_공통지침\claude_model.py"</code> → '정상'</li>
 </ol>
-<h3>티스토리 ads.txt 확인 <span class="who">사용자</span></h3>
+<h3>2. 티스토리 개인정보처리방침</h3>
 <ol class="how">
-<li>티스토리 관리 → 수익 → <b>애드센스 관리</b> — 연동되어 있으면 ads.txt 는 티스토리가 자동으로 둡니다</li>
-<li>확인: 브라우저에서 <code>https://quant-study.tistory.com/ads.txt</code> — <code>google.com, pub-…</code> 줄이 보이면 정상 (지금은 보이지 않음)</li>
-<li>안 보이면 애드센스 관리에서 연동을 해제했다가 다시 '연동하기' (같은 구글 계정)</li>
-<li>관리 화면 위쪽 '애드센스 앵커 광고 설정 확인 및 이용 제한 해제 안내' 공지도 확인해 주세요</li>
+<li>티스토리 관리 → 콘텐츠 → 페이지 관리 → '페이지 쓰기'</li>
+<li>제목 '개인정보처리방침', 오른쪽 위 '기본모드' → HTML</li>
+<li><code>1_블로그/유튜브 블로그/pages/tistory_privacy.html</code> 전체 복사 → 붙여 넣기 → '완료' → 공개</li>
 </ol>
-<h3>구글 서치 콘솔 — 사이트맵 제출과 색인 생성 확인 <span class="who">사용자</span></h3>
+<h3>3. ads.txt 확인</h3>
+<p>티스토리 기본 주소는 맨 위 폴더에 파일을 올릴 수 없어 지금처럼 404 입니다. <a href="https://adsense.google.com/">애드센스</a> → 사이트에서 quant-study.tistory.com 상태만 보세요. 'ads.txt 문제' 경고가 없으면 할 일이 없고, 있으면 Claude 에게 문구를 보여 주세요. (전에 안내한 '연동 해제 후 다시 연동'은 하지 마세요.)</p>
+<h3>4. 구글 서치 콘솔</h3>
 <ol class="how">
-<li><a href="https://search.google.com/search-console">search.google.com/search-console</a> → 속성 추가 → 'URL 접두어'에 <code>https://quant-study.tistory.com/</code> (블로그스팟은 <code>https://chemeer.blogspot.com/</code> — 블로거는 같은 구글 계정이면 자동 확인)</li>
-<li>티스토리 소유 확인: 'HTML 태그' 방식 → 받은 메타 태그를 티스토리 관리 → 플러그인 → '메타 태그 등록'에 넣고 확인</li>
-<li>왼쪽 <b>Sitemaps</b> → <code>sitemap.xml</code> 입력 → 제출 (블로그스팟도 <code>sitemap.xml</code>)</li>
-<li>왼쪽 <b>페이지 → 페이지 색인 생성</b> 보고서: '색인이 생성됨' 과 '생성되지 않음'(크롤링됨-현재 색인이 생성되지 않음 등) 숫자를 주 1회 확인. 지운 글 113편은 '찾을 수 없음(404)'으로 잡히는데 정상입니다</li>
+<li>티스토리: 관리 → 플러그인 → '구글 서치콘솔' → 계정 연결 (소유 확인·사이트맵 자동)</li>
+<li>블로그스팟: <a href="https://search.google.com/search-console">서치 콘솔</a> → 속성 추가 → URL 접두어 <code>https://chemeer.blogspot.com/</code> → Sitemaps 에 <code>sitemap.xml</code></li>
+<li>주 1회: 왼쪽 '페이지' 보고서. 지운 글이 '찾을 수 없음(404)'으로 나오는 것은 정상</li>
 </ol>
-<h3>다음 웹마스터도구 (티스토리) <span class="who">사용자</span></h3>
+<h3>5. 네이버 서치어드바이저</h3>
 <ol class="how">
-<li><a href="https://webmaster.daum.net">webmaster.daum.net</a> → 사이트 등록 → <code>https://quant-study.tistory.com</code></li>
-<li>안내된 PIN 코드를 티스토리 관리 → 플러그인 → 메타 태그 등록(또는 robots.txt 안내 방식)으로 넣어 인증</li>
-<li>'수집 요청'에 사이트맵 <code>https://quant-study.tistory.com/sitemap.xml</code> 등록</li>
+<li><a href="https://searchadvisor.naver.com">searchadvisor.naver.com</a> → 웹마스터 도구 → <code>https://quant-study.tistory.com</code> 등록 → 'HTML 태그' 복사</li>
+<li>티스토리 관리 → 플러그인 → '메타 태그 등록'에 붙여 넣고 소유 확인</li>
+<li>요청 → RSS 제출 <code>https://quant-study.tistory.com/rss</code>, 사이트맵 제출 <code>https://quant-study.tistory.com/sitemap.xml</code></li>
+<li>네이버 블로그는 메타 태그를 넣을 수 없어 소유 확인이 안 될 가능성이 큽니다 — 네이버가 직접 운영하는 곳이라 건너뛰어도 됩니다. 블로그스팟 등록용 태그는 Claude 에게 주면 테마에 넣습니다.</li>
 </ol>
-<h3>네이버 서치어드바이저 — RSS 제출과 수집 현황 (주 1회) <span class="who">사용자</span></h3>
-<ol class="how">
-<li><a href="https://searchadvisor.naver.com">searchadvisor.naver.com</a> → 웹마스터 도구 → 사이트 등록에 <code>https://blog.naver.com/andichoi</code> (네이버 블로그는 별도 인증 없이 등록되는 경우가 많음)</li>
-<li>요청 → <b>RSS 제출</b>: <code>https://rss.blog.naver.com/andichoi.xml</code></li>
-<li>리포트 → <b>수집 현황</b>·검색 노출을 주 1회 확인 (모아 보기 글이 생긴 뒤 노출 변화를 보면 좋습니다)</li>
-</ol>
-<h3>Claude 로그인 (11/12~15에 끝남) <span class="who">사용자 · 중요</span></h3>
-<p>PC 에서 <code>claude setup-token</code> (무인 실행용) 또는 <code>claude auth login</code>. 하지 않으면 그때 모든 자동 글쓰기가 멈춥니다.</p>
+<h3>6. 다음 웹마스터도구 (마지막, 선택)</h3>
+<p><a href="https://webmaster.daum.net">webmaster.daum.net</a> 에 <code>https://quant-study.tistory.com</code> 등록을 시도합니다. 인증 방법을 공식 안내로 확인하지 못했습니다 — 막히면 화면을 Claude 에게 보여 주세요.</p>
 </section>
 
 <section class="card">
@@ -159,6 +155,6 @@ ol.how li{margin:6px 0}
 <p class="small muted">발행 수 '전'은 11/01~11/04 블로그 글 목록 실측 평균, '후'는 schedule.json 과 글쓰기 규칙에 따른 예상치입니다. 실제 발행은 자료가 모자라거나(연금·묶음 글) 발행 전 점검에 걸리면 더 적을 수 있습니다.</p>
 </section>
 </main>
-<footer class="foot">AI 업무 리포트 · 2026-11-07 09:28 생성 · 투자 권유가 아닙니다</footer>
+<footer class="foot">AI 업무 리포트 · 2026-11-07 10:39 생성 · 투자 권유가 아닙니다</footer>
 </body></html>
-<!-- build 1794011308 -->
+<!-- build 1794015547 -->
