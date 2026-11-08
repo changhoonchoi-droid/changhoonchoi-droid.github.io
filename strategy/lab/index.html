@@ -27,7 +27,7 @@ details{border:1px solid var(--ln);border-radius:10px;margin:10px 0;padding:0 12
 .kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0}
 .kpi{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px}.kpi b{display:block;font-size:24px;letter-spacing:-.01em}.kpi span{font-size:13px;color:var(--mu)}
 @media(max-width:640px){.card{padding:14px}}
-.up{color:var(--up);font-weight:700}.dn{color:var(--dn)}td .small{font-weight:400}</style></head>
+.up{color:var(--up);font-weight:700}.dn{color:var(--dn)}td .small{font-weight:400}.tw table{min-width:760px}.tw td:first-child{min-width:190px;max-width:260px}.tw td:first-child .tag{white-space:nowrap}</style></head>
 <body><nav class="topbar"><div class="wrap wide"><a href="https://changhoonchoi-droid.github.io/">🏠 리포트 홈</a> › 전략 연구</div></nav>
 <main class="wrap wide"><script>const CH=[];</script><h1>내 주식투자 전략 연구</h1><p class='muted'>보유한 퀀트 데이터(일별 시세 2021~, 분기 재무 2020_09~)로 2022년 1월부터 2026-11-06까지 전략별로 되짚어 본 결과 · 매매 비용 왕복 0.6% 반영</p><div class="kpis"><div class="kpi"><span>균형형</span><b>+15.3%</b><span>최대 손실폭 -27%</span></div><div class="kpi"><span>안정형</span><b>+13.8%</b><span>최대 손실폭 -20%</span></div><div class="kpi"><span>성장형</span><b>+18.1%</b><span>최대 손실폭 -33%</span></div><div class="kpi"><span>KOSPI 지수</span><b>+11.5%</b><span>최대 손실폭 -44%</span></div></div><div class="card"><h2>결론 먼저</h2><ul>
 <li><b>전략 하나만으로 '연 15% 이상 + 안정적'을 동시에 만족한 것은 없었습니다.</b> 15%를 넘긴 단일 전략(실적 성장 + 추세 +23.0%, 퀄리티 모멘텀 +16.8%)은 최대 손실폭이 -51%·-41%로 컸고, 종목 수를 바꾸면 수익률이 크게 흔들렸습니다.</li>
@@ -52,6 +52,6 @@ new Chart(document.getElementById(id),{type:'line',data:{datasets:ds},options:{r
 interaction:{mode:'nearest',axis:'x',intersect:false},scales:{x:{type:'linear',min:Math.min(...xs),max:Math.max(...xs),ticks:{callback:fy,maxTicksLimit:6,color:css('--mu')},grid:{display:false}},
 y:{ticks:{color:css('--mu')},grid:{color:css('--ln')}}},plugins:{legend:{position:'bottom',labels:{boxWidth:12,boxHeight:2,color:css('--tx')}},
 tooltip:{callbacks:{title:it=>fy(it[0].parsed.x),label:it=>' '+it.dataset.label+': '+it.parsed.y.toFixed(1)}}}}})}));</script></main>
-<footer class="foot">AI 업무 리포트 · 2026-11-09 06:53 생성 · 투자 권유가 아닙니다</footer>
+<footer class="foot">AI 업무 리포트 · 2026-11-09 06:54 생성 · 투자 권유가 아닙니다</footer>
 </body></html>
-<!-- build 1794174785 -->
+<!-- build 1794174882 -->
