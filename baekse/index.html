@@ -674,7 +674,7 @@ $('#themeBtn').addEventListener('click', () => {
 render();
 
 /* ---------------------------------------------------------------- 익명 통계(동의한 경우만) · 댓글 — 구글 시트 저장소 */
-const BACKEND = '';
+const BACKEND = 'https://script.google.com/macros/s/AKfycbyZX9p7Ng1yKLSJapNj8qGT7-q6nU7fi7mP5RTY2A47qDHPH4me7vIByf0Ga7UbGRT7/exec';
 const READY = /^https:\/\/script\.google\.com\//.test(BACKEND);
 function anonId() {
   try { let id = localStorage.getItem('baekse-anon'); if (!id) { id = 'v' + Math.random().toString(36).slice(2, 12); localStorage.setItem('baekse-anon', id); } return id; }
@@ -742,4 +742,4 @@ queueStats();
 </body>
 </html>
 
-<!-- build 20261114-76792693 -->
+<!-- build 20261114-66330104 -->
