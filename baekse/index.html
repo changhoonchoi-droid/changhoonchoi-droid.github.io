@@ -16,7 +16,7 @@
   --bg:#fbf7f0; --card:#ffffff; --ink:#2b2420; --ink2:#5f554c; --ink3:#9a8f84; --line:#e8dfd2; --soft:#f4ede2;
   --acc:#b0703a; --acc2:#7a4a22; --good:#2e7d4f; --warn:#b26a00; --bad:#b3261e; --focus:#2f6fd6; --sp:#6a4fb3;
   --c-nps:#0072B2; --c-gov:#56B4E9; --c-psa:#009E73; --c-irp:#E69F00; --c-isa:#CC79A7; --c-mutual:#D55E00;
-  --c-house:#8c6d31; --c-etc:#8e8e8e; --c-draw:#e3cc3f; --c-min:#b3261e; --c-need:#2b2420;
+  --c-house:#8c6d31; --c-etc:#8e8e8e; --c-draw:#e3cc3f; --c-min:#b3261e; --c-need:#2b2420; --c-loan:#7a3b2e;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark){
@@ -24,7 +24,7 @@
     --bg:#16130f; --card:#1f1b16; --ink:#f2ebe1; --ink2:#c9bdae; --ink3:#8d8273; --line:#3a332b; --soft:#29231d;
     --acc:#e0a46a; --acc2:#f3c896; --good:#6cc596; --warn:#f0b355; --bad:#ff8a80; --sp:#b9a3f5;
     --c-nps:#4aa3e0; --c-gov:#8fd0f2; --c-psa:#3fc49b; --c-irp:#f2b13a; --c-isa:#e19ccb; --c-mutual:#f07a3a;
-    --c-house:#c9a568; --c-etc:#a8a8a8; --c-draw:#efe07a; --c-min:#ff8a80; --c-need:#f2ebe1;
+    --c-house:#c9a568; --c-etc:#a8a8a8; --c-draw:#efe07a; --c-min:#ff8a80; --c-need:#f2ebe1; --c-loan:#d99a86;
     color-scheme: dark;
   }
 }
@@ -32,7 +32,7 @@
   --bg:#16130f; --card:#1f1b16; --ink:#f2ebe1; --ink2:#c9bdae; --ink3:#8d8273; --line:#3a332b; --soft:#29231d;
   --acc:#e0a46a; --acc2:#f3c896; --good:#6cc596; --warn:#f0b355; --bad:#ff8a80; --sp:#b9a3f5;
   --c-nps:#4aa3e0; --c-gov:#8fd0f2; --c-psa:#3fc49b; --c-irp:#f2b13a; --c-isa:#e19ccb; --c-mutual:#f07a3a;
-  --c-house:#c9a568; --c-etc:#a8a8a8; --c-draw:#efe07a; --c-min:#ff8a80; --c-need:#f2ebe1;
+  --c-house:#c9a568; --c-etc:#a8a8a8; --c-draw:#efe07a; --c-min:#ff8a80; --c-need:#f2ebe1; --c-loan:#d99a86;
   color-scheme: dark;
 }
 *{box-sizing:border-box}
@@ -130,6 +130,15 @@ details.more summary{cursor:pointer;padding:12px 16px;font-weight:700}
 .theme{position:absolute;right:14px;top:12px}
 .npsx{grid-column:1/-1;background:var(--soft);border-radius:10px;padding:10px;display:none;grid-template-columns:1fr 1fr;gap:8px 10px}
 .npsx.on{display:grid}
+.loans{grid-column:1/-1;display:flex;flex-direction:column;gap:8px}
+.loan{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,.8fr) auto;gap:6px;align-items:end;background:var(--soft);border-radius:10px;padding:8px}
+.loan label.f{font-size:12px}
+.loan .del{border:0;background:transparent;color:var(--ink3);font-size:18px;cursor:pointer;padding:4px 6px;line-height:1}
+.loan .del:hover{color:var(--bad)}
+#loanAdd{grid-column:1/-1;justify-self:start}
+.loanpay{grid-column:1/-1;font-size:12.5px;color:var(--ink2)}
+tr.pre td{color:var(--ink3)}
+@media (max-width:480px){.loan{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto}.loan .nm{grid-column:1/3}.loan .del{grid-column:3;grid-row:1}}
 .consent{padding:12px 16px}
 .consent label{cursor:pointer;font-size:14px}
 .consent input{accent-color:var(--acc);width:16px;height:16px;vertical-align:-3px}
@@ -222,6 +231,7 @@ details.more summary{cursor:pointer;padding:12px 16px;font-weight:700}
       <li><b>국민연금 수령 시기:</b> 정상 수령 나이보다 일찍 받으면 1년에 6% 줄고(최대 5년), 늦추면 1년에 7.2% 늘어납니다(최대 5년). 정상 수령 나이는 출생연도로 자동 계산합니다(1969년생 이후 65세).</li>
       <li><b>계좌형 연금:</b> 은퇴할 때까지 은퇴 전 수익률로 불린 뒤, 수령 기간 동안 은퇴 후 수익률로 운용하며 매년 같은 금액을 받습니다(받기 시작 나이는 은퇴 나이·55세 이후). '세금 대략 반영'을 켜면 연금소득세(55~69세 5.5%, 70~79세 4.4%, 80세 이상 3.3%)를 뺍니다. 건강보험료·종합과세는 넣지 않았습니다.</li>
       <li><b>주택연금:</b> 주택금융공사 종신 정액형 기준을 단순화한 추정치입니다(시세 12억 원 한도). 정확한 금액은 <a href="https://www.hf.go.kr/ko/sub03/sub03_01_01_01.do" target="_blank" rel="noopener">주택금융공사 월지급금 조회</a>에서 확인하세요.</li>
+      <li><b>대출:</b> 넣은 대출은 지금부터 은퇴할 때까지 해마다 같은 금액(원리금균등, 넣은 금리)으로 모두 갚고, 갚는 돈은 금융자산(현금·예금·주식)에서 빠집니다. 그래프와 표는 지금 나이부터 그리며, 은퇴 전 해에는 대출 상환액을 보여 줍니다.</li>
       <li><b>모자랄 때:</b> 받는 돈이 '목표 생활비'보다 적은 해에는 금융자산에서 부족분을 꺼내 쓰고(노란 막대), 남는 해에는 금융자산에 보탭니다.</li>
       <li>이 계산은 미래를 단순하게 가정한 <b>추정</b>이며, 투자나 가입을 권하는 것이 아닙니다. 실제 수령액은 <a href="https://csa.nps.or.kr/" target="_blank" rel="noopener">국민연금 내 연금 알아보기</a>, <a href="https://100lifeplan.fss.or.kr/" target="_blank" rel="noopener">금융감독원 통합연금포털</a>에서 확인하세요.</li>
     </ul>
@@ -297,8 +307,11 @@ const GROUPS = [
   ], hint: '매각액은 오늘 돈 기준(세금·비용 뺀 금액)으로, 매각하면 금융자산에 더합니다.' },
   { id: 'cash', title: '현금 · 예금 · 주식', color: '--c-draw', sub: '가구 공통', open: true, fields: [
     ['cashBal', '지금 금융자산', '만원', 5000], ['cashMon', '은퇴까지 매달 저축', '만원/월', 50],
-  ]},
+  ], hint: '매달 저축은 대출 갚는 돈을 빼기 전 금액입니다. 대출 상환금은 아래 \'대출\'에서 따로 계산해 이 금융자산에서 빠져나갑니다.' },
+  { id: 'loan', title: '대출', color: '--c-loan', sub: '은퇴 때까지 모두 갚기', open: true, fields: [], extra: 'loans',
+    hint: '지금 남은 대출을 넣으면 은퇴할 때까지 원리금을 똑같이 나눠(원리금균등) 다 갚는 것으로 계산하고, 갚는 돈은 금융자산에서 빠집니다. 이미 은퇴 나이면 지금 한 번에 갚습니다.' },
 ];
+const LOAN_DEF = { name: '', bal: 0, rate: 4.0 };
 // 배우자 칸 기본값: 금액은 0, 나이·기간·비율은 본인과 같게
 const spDefault = (unit, def) => /만원/.test(unit) ? 0 : def;
 const FIELDS = [];   // {id, label, unit, def, opts, show, who, base}
@@ -312,10 +325,13 @@ const DEFAULTS = Object.fromEntries(FIELDS.map(f => [f.id, f.def]));
 const SAMPLE = Object.assign({}, DEFAULTS, { house: 'dual', age: 45, retire: 60, spAge: 43, spRetire: 60, spSalary: 150, infl: 2, r1: 4, r2: 3, cut80: 10,
   npsMe: 130, npsMeAge: 65, sp_npsMe: 85, sp_npsMeAge: 65, psaBal: 3500, psaMon: 30, psaAge: 60, psaYrs: 15, sp_psaBal: 1500, sp_psaMon: 20, sp_psaAge: 60, sp_psaYrs: 15,
   irpBal: 6000, irpMon: 45, irpAge: 60, irpYrs: 20, sp_irpBal: 3000, sp_irpMon: 30, sp_irpAge: 60, sp_irpYrs: 20, isaBal: 2000, isaMon: 50, isaYrs: 10,
-  hsVal: 40000, hsAge: 75, cashBal: 5000, cashMon: 40, workAmt: 150, workEnd: 63 });
+  hsVal: 40000, hsAge: 75, cashBal: 5000, cashMon: 150, workAmt: 150, workEnd: 63,
+  loans: [{ name: '주택담보대출', bal: 10000, rate: 3.9 }, { name: '신용대출', bal: 1000, rate: 5.5 }] });
+DEFAULTS.loans = [];
 const SRC = [   // 그래프 순서 (고정)
   ['nps', '국민연금', '--c-nps'], ['gov', '공무원·사학·군인연금', '--c-gov'], ['psa', '연금저축', '--c-psa'], ['irp', 'IRP·퇴직연금', '--c-irp'],
   ['isa', 'ISA', '--c-isa'], ['mutual', '공제회', '--c-mutual'], ['house', '주택연금', '--c-house'], ['etc', '일·임대·기타', '--c-etc'], ['draw', '금융자산에서 꺼냄', '--c-draw']];
+const SRCX = [...SRC, ['loan', '대출 상환 (은퇴 전, 금융자산에서)', '--c-loan']];   // 그래프: 은퇴 전 해의 대출 상환
 
 /* ---------------------------------------------------------------- 화면 만들기 */
 const $ = s => document.querySelector(s);
@@ -324,7 +340,7 @@ function inputHTML(f) {
   const name = (f.who === 'sp' ? '배우자 ' : '') + f.label;
   return f.unit === 'sel'
     ? `${name}<span class="in"><select id="${f.id}">${f.opts.map(([v, t]) => `<option value="${v}">${t}</option>`).join('')}</select></span>`
-    : `${name}<span class="in"><input id="${f.id}" type="number" inputmode="decimal" step="any"><span class="u">${f.unit}</span></span>`;
+    : `${name}<span class="in"><input id="${f.id}" type="number" inputmode="decimal" step="${/%/.test(f.unit) ? '0.1' : 'any'}"><span class="u">${f.unit}</span></span>`;
 }
 function buildForm() {
   const form = $('#form');
@@ -351,6 +367,12 @@ function buildForm() {
         <button type="button" class="btn" id="nxGo">추정해서 넣기</button>`;
       box.append(x);
     }
+    if (g.extra === 'loans') {
+      const x = document.createElement('div'); x.className = 'loans'; x.id = 'loans';
+      const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'btn'; btn.id = 'loanAdd'; btn.textContent = '＋ 대출 추가';
+      const pay = document.createElement('div'); pay.className = 'loanpay'; pay.id = 'loanPay';
+      box.append(x, btn, pay);
+    }
     if (g.hint) { const h = document.createElement('div'); h.className = 'hint'; h.innerHTML = g.hint; if (g.id === 'basic') h.dataset.show = 'dual'; box.append(h); }
     d.append(box); form.append(d);
   }
@@ -362,9 +384,25 @@ function applyHouse() {
 const V = {};
 function read() {
   for (const f of FIELDS) { const e = document.getElementById(f.id); V[f.id] = e.tagName === 'SELECT' ? e.value : (e.value === '' ? 0 : +e.value); }
+  V.loans = readLoans();
   return V;
 }
-function fill(o) { for (const [k, v] of Object.entries(o)) { const e = document.getElementById(k); if (e) e.value = v; } }
+function fill(o) {
+  for (const [k, v] of Object.entries(o)) { if (k === 'loans') continue; const e = document.getElementById(k); if (e) e.value = v; }
+  if ('loans' in o) setLoans(Array.isArray(o.loans) ? o.loans : []);
+}
+const escA = t => String(t ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function loanRow(l, i) {
+  return `<div class="loan" data-i="${i}">
+    <label class="f nm">대출 ${i + 1} 이름<span class="in"><input class="ln" type="text" maxlength="20" placeholder="예: 주택담보대출" value="${escA(l.name)}" style="text-align:left"></span></label>
+    <label class="f">남은 금액<span class="in"><input class="lb" type="number" inputmode="decimal" step="any" min="0" value="${+l.bal || 0}"><span class="u">만원</span></span></label>
+    <label class="f">금리<span class="in"><input class="lr" type="number" inputmode="decimal" step="0.1" min="0" value="${+l.rate || 0}"><span class="u">%/년</span></span></label>
+    <button type="button" class="del" title="이 대출 지우기" aria-label="대출 ${i + 1} 지우기">×</button></div>`;
+}
+function setLoans(list) { $('#loans').innerHTML = list.map(loanRow).join(''); }
+function readLoans() {
+  return [...document.querySelectorAll('#loans .loan')].map(d => ({ name: d.querySelector('.ln').value.trim(), bal: Math.max(0, +d.querySelector('.lb').value || 0), rate: Math.max(0, +d.querySelector('.lr').value || 0) }));
+}
 
 /* ---------------------------------------------------------------- 계산 */
 const normalNpsAge = by => by <= 1952 ? 60 : by <= 1956 ? 61 : by <= 1960 ? 62 : by <= 1964 ? 63 : by <= 1968 ? 64 : 65;
@@ -428,7 +466,20 @@ function simulate(v) {
   // 외벌이: 배우자는 국민연금만 / 맞벌이: 모든 연금
   const sp = couple ? person(k => (k === 'npsMe' || k === 'npsMeAge' || dual) ? v['sp_' + k] : (/Age|Yrs|Rate|End/.test(k) ? v['sp_' + k] : 0), spA0, spR, s) : null;
   const houseM = houseMonthly(v.hsVal * pf(v.hsAge), Math.max(55, v.hsAge));
-  let cash = grow(v.cashBal, v.cashMon, s.r1, R - A0);
+  // 은퇴 전: 해마다 저축을 더하고 대출 원리금을 빼며 금융자산을 굴린다 (대출은 은퇴 때까지 원리금균등으로 다 갚음)
+  const loans = (v.loans || []).filter(l => l.bal > 0).map(l => ({ ...l, left: l.bal, pay: pmt(l.bal, l.rate / 100, R - A0) }));
+  let cash = v.cashBal;
+  const pre = [];
+  if (R === A0) { for (const l of loans) { cash -= l.left; l.paidNow = l.left; l.left = 0; } }
+  for (let a = A0; a < R; a++) {
+    let lp = 0;
+    for (const l of loans) { if (l.left <= 0.01) continue; const pay = Math.min(l.pay, l.left * (1 + l.rate / 100)); l.left = l.left * (1 + l.rate / 100) - pay; lp += pay; }
+    cash = cash * (1 + s.r1) + v.cashMon * 12 * (1 + s.r1 / 2) - lp;
+    pre.push({ age: a, spAge: couple ? a + off : null, p: pf(a), pre: true, loanPay: lp, loanLeft: loans.reduce((t, l) => t + Math.max(0, l.left), 0), cash });
+  }
+  const loanInfo = { n: loans.length, bal: loans.reduce((t, l) => t + l.bal, 0), yearPay: loans.reduce((t, l) => t + (R > A0 ? l.pay : 0), 0),
+    totalPay: pre.reduce((t, r) => t + r.loanPay, 0) + loans.reduce((t, l) => t + (l.paidNow || 0), 0), now: R === A0,
+    minCash: Math.min(cash, ...pre.map(r => r.cash)) };
   const lumps = [[me.lumpAge, me.lump]];
   if (sp && sp.lump > 0) lumps.push([spR - off, sp.lump]);
   for (const [at, amt] of lumps) if (amt > 0 && at <= R) cash += amt;
@@ -447,12 +498,12 @@ function simulate(v) {
     const minL = v.minLive * 12 * p * cut, needL = v.needLive * 12 * p * cut;   // 생활비: 해마다 물가만큼 늘어남
     const target = v.target === 'min' ? minL : needL;
     const income = Object.values(src).reduce((t, x) => t + x, 0);
-    if (income < target) { const d = Math.min(cash, target - income); src.draw = d; cash -= d; }
+    if (income < target) { const d = Math.max(0, Math.min(cash, target - income)); src.draw = d; cash -= d; }
     else cash += income - target;
     rows.push({ age: a, spAge: couple ? a + off : null, p, src, income, total: income + src.draw, minL, needL, cash });
     cash *= 1 + s.r2;
   }
-  return { rows, R, A0, me, sp, off, spR, couple, dual, houseM };
+  return { rows, pre, all: pre.concat(rows), loanInfo, R, A0, me, sp, off, spR, couple, dual, houseM };
 }
 
 /* ---------------------------------------------------------------- 그리기 */
@@ -466,17 +517,19 @@ const K = r => money === 'real' ? 1 / r.p : 1;
 const ageLabel = r => r.spAge !== null ? `본인 ${r.age}세 · 배우자 ${r.spAge}세` : `${r.age}세`;
 function render() {
   const v = read(), sim = simulate(v); last = sim;
-  const rows = sim.rows, labels = rows.map(r => r.age + '세');
-  const ds = SRC.map(([id, name, c]) => ({ type: 'bar', label: name, data: rows.map(r => r.src[id] / 12 * K(r)), backgroundColor: css(c),
+  const rows = sim.all, labels = rows.map(r => r.age === sim.R && sim.pre.length ? `${r.age}세(은퇴)` : r.age + '세');
+  const val = (r, id) => r.pre ? (id === 'loan' ? r.loanPay : 0) : (id === 'loan' ? 0 : r.src[id]);
+  const ds = SRCX.map(([id, name, c]) => ({ type: 'bar', label: name, data: rows.map(r => val(r, id) / 12 * K(r)), backgroundColor: css(c),
     borderColor: css('--card'), borderWidth: { top: 1, left: 0, right: 0, bottom: 0 }, borderSkipped: false, stack: 's', order: 2 }))
     .filter(d => d.data.some(x => x > 0.01));
   // 선은 막대처럼 쌓이면 안 됨 — 각자 다른 stack
-  ds.push({ type: 'line', label: '적정 생활비', data: rows.map(r => r.needL / 12 * K(r)), borderColor: css('--c-need'), borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, order: 0, tension: 0, stack: 'need' });
-  ds.push({ type: 'line', label: '최소 생활비', data: rows.map(r => r.minL / 12 * K(r)), borderColor: css('--c-min'), borderWidth: 2, borderDash: [6, 4], pointRadius: 0, pointHoverRadius: 4, order: 0, tension: 0, stack: 'min' });
-  const f = rows[0], l = rows[rows.length - 1];
-  $('#chartSub').textContent = money === 'real'
+  ds.push({ type: 'line', label: '적정 생활비', data: rows.map(r => r.pre ? null : r.needL / 12 * K(r)), borderColor: css('--c-need'), borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, order: 0, tension: 0, stack: 'need' });
+  ds.push({ type: 'line', label: '최소 생활비', data: rows.map(r => r.pre ? null : r.minL / 12 * K(r)), borderColor: css('--c-min'), borderWidth: 2, borderDash: [6, 4], pointRadius: 0, pointHoverRadius: 4, order: 0, tension: 0, stack: 'min' });
+  const f = sim.rows[0], l = rows[rows.length - 1];
+  const preTxt = sim.pre.length ? ` · ${sim.A0}~${sim.R - 1}세는 은퇴 전${sim.loanInfo.n ? '(대출 상환)' : ''}` : '';
+  $('#chartSub').textContent = (money === 'real'
     ? '월 기준 · 만원 · 오늘 돈 가치로 환산 (물가만큼 나눔 — 생활비 선이 평평해 보임)'
-    : `월 기준 · 만원 · 그 해의 실제 금액 — 적정 생활비가 물가 ${v.infl}%씩 늘어 ${f.age}세 월 ${won(f.needL / 12)}원 → ${l.age}세 월 ${won(l.needL / 12)}원`;
+    : `월 기준 · 만원 · 그 해의 실제 금액 — 적정 생활비가 물가 ${v.infl}%씩 늘어 ${f.age}세 월 ${won(f.needL / 12)}원 → ${l.age}세 월 ${won(l.needL / 12)}원`) + preTxt;
   $('#legend').innerHTML = ds.map(d => d.type === 'bar' ? `<span><i style="background:${d.backgroundColor}"></i>${d.label}</span>`
     : `<span><i class="line${d.borderDash ? ' dash' : ''}" style="border-color:${d.borderColor}"></i>${d.label}</span>`).join('');
   const grid = css('--line'), tick = css('--ink3');
@@ -487,17 +540,22 @@ function render() {
     plugins: { legend: { display: false },
       tooltip: { itemSort: (a, b) => (a.dataset.type === 'line') - (b.dataset.type === 'line'), filter: it => it.raw > 0.01 || it.dataset.type === 'line',
         callbacks: { title: items => ageLabel(rows[items[0].dataIndex]), label: c => ` ${c.dataset.label}: 월 ${won(c.raw)}원`,
-          footer: items => { const s = items.filter(x => x.dataset.type === 'bar').reduce((a, x) => a + x.raw, 0); return `받는 돈 합계: 월 ${won(s)}원\n(누르면 아래에서 구성 보기)`; } } } },
+          footer: items => { const r = rows[items[0].dataIndex]; if (r.pre) return `은퇴 전 · 남은 대출 ${won(r.loanLeft)}원 · 금융자산 ${won(r.cash * K(r))}원`;
+            const s = items.filter(x => x.dataset.type === 'bar').reduce((a, x) => a + x.raw, 0); return `받는 돈 합계: 월 ${won(s)}원\n(누르면 아래에서 구성 보기)`; } } } },
     scales: { x: { stacked: true, grid: { display: false }, ticks: { color: tick, autoSkip: true, maxRotation: 0 } },
       y: { stacked: true, beginAtZero: true, grid: { color: grid }, ticks: { color: tick, callback: x => won(x) } } } } });
   if (ch2) ch2.destroy();
   ch2 = new Chart($('#ch2'), { type: 'line', data: { labels, datasets: [{ label: '금융자산 잔액', data: rows.map(r => r.cash / 10000 * K(r)), borderColor: css('--acc'), backgroundColor: css('--acc') + '33', fill: true, borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .15 }] },
     options: { responsive: true, maintainAspectRatio: false, animation: { duration: 250 }, interaction: { mode: 'index', intersect: false },
       plugins: { legend: { display: false }, tooltip: { callbacks: { title: items => ageLabel(rows[items[0].dataIndex]), label: c => ` 잔액: ${c.raw.toFixed(2)}억 원` } } },
-      scales: { x: { grid: { display: false }, ticks: { color: tick, maxRotation: 0 } }, y: { beginAtZero: true, grid: { color: grid }, ticks: { color: tick, callback: x => x + '억' } } } } });
+      scales: { x: { grid: { display: false }, ticks: { color: tick, maxRotation: 0 } }, y: { beginAtZero: true, grid: { color: c => c.tick.value === 0 ? tick : grid }, ticks: { color: tick, callback: x => x + '억' } } } } });
   const cr = $('#compRange'); cr.min = sim.R; cr.max = 100;
   let ca = +$('#compAge').value; if (ca < sim.R || ca > 100) ca = Math.min(100, Math.max(sim.R, 70));
   setCompAge(ca, true);
+  const li0 = sim.loanInfo;
+  $('#loanPay').innerHTML = li0.n ? (li0.now ? `은퇴 나이라 대출 ${won(li0.bal)}원을 지금 금융자산에서 한 번에 갚는 것으로 계산했습니다.`
+    : `은퇴(${sim.R}세)까지 ${sim.R - sim.A0}년 동안 <b>월 ${won(li0.yearPay / 12)}원</b>씩 갚습니다 · 갚는 돈 합계 ${won(li0.totalPay)}원(이자 ${won(li0.totalPay - li0.bal)}원)`)
+    : '대출이 있으면 ‘＋ 대출 추가’로 넣으세요. 여러 개 넣을 수 있습니다.';
   summary(v, sim); table(sim); save();
   if (window.statsOn) queueStats();
 }
@@ -555,6 +613,12 @@ function summary(v, sim) {
   if (shares.length) li.push(`100세까지 받는 돈(오늘 가치) 가운데 가장 큰 몫은 <b>${shares[0][0]} ${Math.round(shares[0][1] / tot * 100)}%</b>${shares[1] ? `, 다음은 ${shares[1][0]} ${Math.round(shares[1][1] / tot * 100)}%` : ''}입니다.`);
   const endAcc = [sim.me.psa, sim.me.irp].filter(x => x.pay > 0).map(x => x.end).sort((a, b) => a - b)[0];
   if (endAcc && endAcc < 100) li.push(`본인 계좌형 연금(연금저축·IRP)은 <b>${endAcc + 1}세부터</b> 끝나기 시작합니다. 수령 기간을 늘리면 해마다 받는 돈은 줄지만 늦은 나이의 공백이 줄어듭니다.`);
+  const L = sim.loanInfo;
+  if (L.n) {
+    li.push(L.now ? `대출 ${L.n}건(${won(L.bal)}원)을 은퇴 시점인 지금 금융자산에서 한 번에 갚는 것으로 계산했습니다.`
+      : `대출 ${L.n}건, 남은 ${won(L.bal)}원을 은퇴(${sim.R}세)까지 원리금균등으로 갚으면 <b>월 ${won(L.yearPay / 12)}원</b>, 모두 ${won(L.totalPay)}원(이자 ${won(L.totalPay - L.bal)}원)이 금융자산에서 빠져나갑니다.`);
+    if (L.minCash < 0) li.push(`<b>주의:</b> 대출을 갚는 동안 금융자산이 마이너스(최저 ${won(L.minCash)}원)가 됩니다. 지금 저축으로는 은퇴 전에 대출을 다 갚기 어렵다는 뜻이라, 저축을 늘리거나 은퇴 나이·대출 계획을 다시 살펴보세요.`);
+  }
   if (sim.houseM > 0) li.push(`주택연금은 ${v.hsAge}세 가입 기준 월 약 <b>${won(sim.houseM)}원</b>(그 해 금액, 이후 정액)으로 추정했습니다.`);
   const drawYears = rows.filter(r => r.src.draw > 0);
   if (drawYears.length) li.push(`생활비가 모자라 금융자산에서 꺼내 쓰는 해가 <b>${drawYears.length}년</b>(${drawYears[0].age}세부터) 있습니다.`);
@@ -569,8 +633,10 @@ function summary(v, sim) {
 
 function table(sim) {
   const used = SRC.filter(([id]) => sim.rows.some(r => r.src[id] > 0));
-  const head = `<thead><tr><th>나이</th>${sim.couple ? '<th>배우자</th>' : ''}${used.map(s => `<th>${s[1]}</th>`).join('')}<th>받는 돈 합계</th><th>적정 생활비</th><th>최소 생활비</th><th>금융자산</th></tr></thead>`;
-  const body = sim.rows.map(r => `<tr><td>${r.age}세</td>${sim.couple ? `<td>${r.spAge}세</td>` : ''}${used.map(([id]) => `<td>${won(r.src[id] / 12 * K(r))}</td>`).join('')}<td><b>${won(r.total / 12 * K(r))}</b></td><td>${won(r.needL / 12 * K(r))}</td><td>${won(r.minL / 12 * K(r))}</td><td>${(r.cash * K(r) / 10000).toFixed(2)}억</td></tr>`).join('');
+  const hasL = sim.loanInfo.n > 0;
+  const head = `<thead><tr><th>나이</th>${sim.couple ? '<th>배우자</th>' : ''}${used.map(s => `<th>${s[1]}</th>`).join('')}<th>받는 돈 합계</th><th>적정 생활비</th><th>최소 생활비</th>${hasL ? '<th>대출 상환</th><th>남은 대출</th>' : ''}<th>금융자산</th></tr></thead>`;
+  const preB = sim.pre.map(r => `<tr class="pre"><td>${r.age}세</td>${sim.couple ? `<td>${r.spAge}세</td>` : ''}${used.map(() => '<td>–</td>').join('')}<td>은퇴 전</td><td>–</td><td>–</td>${hasL ? `<td>${won(r.loanPay / 12 * K(r))}</td><td>${won(r.loanLeft)}</td>` : ''}<td>${(r.cash * K(r) / 10000).toFixed(2)}억</td></tr>`).join('');
+  const body = preB + sim.rows.map(r => `<tr><td>${r.age}세</td>${sim.couple ? `<td>${r.spAge}세</td>` : ''}${used.map(([id]) => `<td>${won(r.src[id] / 12 * K(r))}</td>`).join('')}<td><b>${won(r.total / 12 * K(r))}</b></td><td>${won(r.needL / 12 * K(r))}</td><td>${won(r.minL / 12 * K(r))}</td>${hasL ? '<td>–</td><td>0</td>' : ''}<td>${(r.cash * K(r) / 10000).toFixed(2)}억</td></tr>`).join('');
   $('#table').innerHTML = head + '<tbody>' + body + '</tbody>';
 }
 
@@ -600,16 +666,24 @@ function excel() {
       s2.push([f.label, val, shown ? v[spf.id] : '', f.unit === 'sel' ? '' : f.unit]);
     }
   }
+  s2.push(['[대출 — 은퇴 때까지 원리금균등 상환]']);
+  if (!(v.loans || []).length) s2.push(['대출 없음']);
+  (v.loans || []).forEach((l, i) => s2.push([`${i + 1}. ${l.name || '대출'}`, l.bal, `금리 ${l.rate}%`, '만원']));
   const ws2 = XLSX.utils.aoa_to_sheet(s2); ws2['!cols'] = [{ wch: 26 }, { wch: 16 }, { wch: 12 }, { wch: 14 }];
   XLSX.utils.book_append_sheet(wb, ws2, '입력값');
   // 해마다 (그 해 금액 / 오늘 가치)
   const used = SRC.filter(([id]) => sim.rows.some(r => r.src[id] > 0));
   for (const [name, real] of [['해마다(그 해 금액)', false], ['해마다(오늘 돈 가치)', true]]) {
-    const hd = ['본인 나이', ...(sim.couple ? ['배우자 나이'] : []), ...used.map(x => x[1] + ' (만원/월)'), '받는 돈 합계 (만원/월)', '적정 생활비 (만원/월)', '최소 생활비 (만원/월)', '금융자산 잔액 (만원)'];
+    const hasL = sim.loanInfo.n > 0;
+    const hd = ['본인 나이', ...(sim.couple ? ['배우자 나이'] : []), ...used.map(x => x[1] + ' (만원/월)'), '받는 돈 합계 (만원/월)', '적정 생활비 (만원/월)', '최소 생활비 (만원/월)', ...(hasL ? ['대출 상환 (만원/월)', '남은 대출 (만원)'] : []), '금융자산 잔액 (만원)'];
     const data = [hd];
+    for (const r of sim.pre) {
+      const k = real ? 1 / r.p : 1;
+      data.push([r.age, ...(sim.couple ? [r.spAge] : []), ...used.map(() => ''), '은퇴 전', '', '', ...(hasL ? [Math.round(r.loanPay / 12 * k * 10) / 10, Math.round(r.loanLeft)] : []), Math.round(r.cash * k)]);
+    }
     for (const r of sim.rows) {
       const k = real ? 1 / r.p : 1, rd = x => Math.round(x * 10) / 10;
-      data.push([r.age, ...(sim.couple ? [r.spAge] : []), ...used.map(([id]) => rd(r.src[id] / 12 * k)), rd(r.total / 12 * k), rd(r.needL / 12 * k), rd(r.minL / 12 * k), Math.round(r.cash * k)]);
+      data.push([r.age, ...(sim.couple ? [r.spAge] : []), ...used.map(([id]) => rd(r.src[id] / 12 * k)), rd(r.total / 12 * k), rd(r.needL / 12 * k), rd(r.minL / 12 * k), ...(hasL ? ['', 0] : []), Math.round(r.cash * k)]);
     }
     const ws = XLSX.utils.aoa_to_sheet(data); ws['!cols'] = hd.map(h => ({ wch: Math.max(10, h.length + 2) }));
     XLSX.utils.book_append_sheet(wb, ws, name);
@@ -642,6 +716,8 @@ $('#form').addEventListener('input', e => {
   if (id === 'spAge') fill({ sp_npsMeAge: normalNpsAge(new Date().getFullYear() - (+e.target.value || 45)) });
   clearTimeout(timer); timer = setTimeout(render, 150);
 });
+$('#loanAdd').addEventListener('click', () => { const l = readLoans(); l.push({ ...LOAN_DEF }); setLoans(l); render(); const ins = document.querySelectorAll('#loans .ln'); ins[ins.length - 1].focus(); });
+$('#loans').addEventListener('click', e => { const b = e.target.closest('.del'); if (!b) return; const i = +b.closest('.loan').dataset.i; const l = readLoans(); l.splice(i, 1); setLoans(l); render(); });
 $('#compRange').addEventListener('input', e => setCompAge(+e.target.value));
 $('#compAge').addEventListener('change', e => setCompAge(+e.target.value));
 document.addEventListener('click', e => {
@@ -742,4 +818,4 @@ queueStats();
 </body>
 </html>
 
-<!-- build 20261115-41862791 -->
+<!-- build 20261115-76369210 -->
