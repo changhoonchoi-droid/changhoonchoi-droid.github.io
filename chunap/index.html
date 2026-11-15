@@ -104,7 +104,14 @@ footer{color:var(--ink3);font-size:12.5px;text-align:center;padding:10px 16px 40
       <option value="no">없어요 — 쭉 냈어요</option><option value="yes">있어요</option></select></span>
       <span class="hint">실직·휴직·육아휴직·학업·군 복무·전업주부로 지낸 기간 등</span></label>
     <label class="f" id="fGap" hidden>빠진 기간은 모두 얼마나 되나요?<span class="in"><input id="gapM" type="number" inputmode="numeric" min="0" max="600" value="36"><span class="u">개월</span></span>
-      <span class="hint">대략이라도 괜찮아요 (예: 3년 = 36개월) · 이 기간이 추납 후보입니다</span></label>
+      <span class="hint">대략이라도 괜찮아요 (예: 3년 = 36개월) · 군 복무 기간은 아래에 따로 넣으세요</span></label>
+    <label class="f">군 복무를 했나요?<span class="in"><select id="mil">
+      <option value="no">안 했어요</option><option value="enl">네 — 현역병·사회복무요원·상근예비역</option><option value="off">네 — 장교·부사관 (군인연금)</option></select></span>
+      <span class="hint">보험료를 쭉 냈어도, 가입 전이라도 1988년 이후 병 복무 기간은 추납할 수 있어요</span></label>
+    <label class="f" id="fMil" hidden>복무 기간<span class="in"><input id="milM" type="number" inputmode="numeric" min="1" max="60" value="21"><span class="u">개월</span></span>
+      <span class="hint">병적증명서 기준 (예: 육군 18~26개월)</span></label>
+    <label class="f" id="fMilY" hidden>전역한 해<span class="in"><input id="milY" type="number" inputmode="numeric" min="1960" max="2026" value="1997"><span class="u">년</span></span>
+      <span class="hint">1988년 이후 복무분만 추납 대상</span></label>
     <label class="f">지금까지 보험료를 낸 기간 <small style="font-weight:400;color:var(--ink3)">(자동 계산)</small><span class="in"><input id="paidM" type="number" inputmode="numeric" min="0" max="600" value="180"><span class="u">개월</span></span>
       <span class="hint" id="paidHint">가입한 해부터 지금까지 − 빠진 기간 · 가입내역의 '납부 월수'를 알면 직접 고쳐도 됩니다</span></label>
     <label class="f">그동안의 평균 월소득<span class="in"><input id="pastInc" type="number" inputmode="numeric" min="0" max="1000" value="300"><span class="u">만원</span></span>
@@ -139,7 +146,8 @@ footer{color:var(--ink3);font-size:12.5px;text-align:center;padding:10px 16px 40
   <p class="lead">추납은 <b>보험료를 내지 못했던 기간</b>을 나중에 채워 넣어 가입기간을 늘리는 제도입니다.</p>
   <details open><summary><b>내가 추납할 수 있는 기간은? (먼저 확인)</b></summary>
   <ul class="chk">
-    <li><b>납부예외 기간</b> — 국민연금에 가입한 뒤 실직·휴직·폐업·학업·군 복무 등으로 '납부예외'를 신청했던 기간</li>
+    <li><b>납부예외 기간</b> — 국민연금에 가입한 뒤 실직·휴직·폐업·학업 등으로 '납부예외'를 신청했던 기간</li>
+    <li><b>군 복무 기간</b> — 1988년 이후 병 복무 기간. 보험료를 쭉 냈거나 처음 가입하기 전 복무였어도 됩니다 (장교·부사관 제외)</li>
     <li><b>적용제외 기간</b> — 보험료를 한 번이라도 낸 뒤, 소득이 없는 배우자(경력단절 전업주부 등)로 지냈던 기간</li>
     <li><b>신청 조건</b> — 지금 국민연금 가입자(직장·지역·임의·임의계속가입)여야 하고, 연금을 받기 시작하기 전이어야 합니다. 처음 가입하기 전 기간이나 보험료를 한 번도 안 낸 사람은 안 됩니다.</li>
     <li><b>한도</b> — 군 복무 기간을 포함해 <b>최대 119개월</b>(10년 미만)</li>
@@ -182,7 +190,8 @@ footer{color:var(--ink3);font-size:12.5px;text-align:center;padding:10px 16px 40
     <li>월 연금 ≈ Σ 비례상수 × (A값 + 내 소득) × 가입 월수 ÷ 2,880. <b>A값</b>은 가입자 전체 평균소득(2026년 319만 3,511원), 비례상수는 가입한 해에 따라 1988~1998년 2.4 → 1999~2007년 1.8 → 2008년 1.5 → 해마다 0.015씩 낮아져 2025년 1.245 → 2026년부터 1.29(소득대체율 43%).</li>
     <li>추납한 기간은 <b>추납을 신청한 해의 비례상수(2026년 1.29)</b>와 신청 당시 기준소득월액으로 계산한다고 보았습니다.</li>
     <li><b>다자녀(출산 크레딧)</b> — 2008년 이후 둘째를 낳거나 입양하면 12개월, 셋째부터는 1명당 18개월을 가입기간으로 더 인정합니다. 2026년부터는 첫째도 12개월이 인정되고 50개월 상한이 없어졌습니다. 인정되는 달의 소득은 A값의 절반으로 보고, 보험료는 나라가 냅니다. 노령연금을 받을 자격(가입 10년)이 생길 때 더해지며, 부부 중 한 명이 받거나 나눠 받을 수 있습니다. 둘째 인정 기간을 늘리는 법 개정 논의도 있으니 신청 전 <a href="https://www.nps.or.kr" target="_blank" rel="noopener">국민연금공단</a>에서 확인하세요.</li>
-    <li><b>군 복무 크레딧</b> — 2026년 이후 6개월 이상 복무를 마치면 최대 12개월(그 전 전역은 6개월)을 더 인정합니다. 추납과는 별개입니다.</li>
+    <li><b>군 복무 추납</b> — 1988년 이후 현역병·사회복무요원·상근예비역으로 복무한 기간은 보험료를 빠짐없이 냈어도, 가입 전 복무였어도 추납할 수 있습니다(지금 가입자여야 함, 다른 추납 기간과 합쳐 최대 119개월). 장교·부사관 기간은 군인연금이라 제외됩니다.</li>
+    <li><b>군 복무 크레딧</b> — 2008년 이후 입대해 6개월 이상 복무하면 6개월을 무료로 인정하고, 2026년 이후 전역은 최대 12개월입니다. 추납과는 별개이며 겹치는 기간은 공단에서 확인하세요.</li>
     <li>가입기간이 <b>10년(120개월)</b>이 안 되면 노령연금을 받지 못하고 낸 돈을 돌려받습니다(반환일시금). 추납으로 10년을 채우는 경우 효과가 가장 큽니다.</li>
     <li>추납 보험료 = 기준소득월액 × 보험료율 × 개월 수. 보험료율은 2026년 9.5%이고 해마다 0.5%p씩 올라 2033년 13%가 되므로, 같은 기간이라도 <b>빨리 낼수록 쌉니다</b>. 12월에 신청하고 그달에 내면 그해 요율이 적용됩니다.</li>
     <li>낸 추납 보험료는 그해 연말정산·종합소득세에서 연금보험료 소득공제를 받을 수 있습니다(여기 계산에는 넣지 않음).</li>
@@ -260,9 +269,17 @@ function render1() {
   $('#m1').innerHTML = msg;
   if (!$('#chInc').dataset.touched) $('#chInc').value = b.fut === 'work' ? num('#futInc') : 101.3;
   const gap = $('#hasGap').value === 'yes' ? Math.round(num('#gapM')) : 0;
-  if (gap > 0 && !$('#avail').dataset.touched) { $('#avail').value = Math.min(MAXM, gap); $('#useM').value = Math.min(MAXM, gap); }
-  if (gap > 0) $('#m1').innerHTML += `<div class="note">빠진 기간 <b>${gap}개월</b>이 추납 후보입니다. 그중 공단에서 '추납 가능'으로 나오는 기간을 최대 119개월까지 채울 수 있어요 — 아래 2단계에 ${Math.min(MAXM, gap)}개월로 넣어 두었습니다.</div>`;
-  else $('#m1').innerHTML += `<div class="note">빠진 기간이 없다고 하셨어요. 그래도 군 복무·실직·휴직 기간이 있었다면 추납할 수 있는지 공단에서 한 번 확인해 보세요.</div>`;
+  // 군 복무 추납: 1988년 이후 병 복무분 (가입 전 복무여도 지금 가입자면 가능) · 장교·부사관은 군인연금이라 제외
+  const milType = $('#mil').value, milEnd = Math.round(num('#milY')), milM0 = Math.max(0, Math.round(num('#milM')));
+  const milM = milType === 'enl' ? Math.max(0, Math.min(milM0, (milEnd - 1988) * 12 + 12)) : 0;   // 1988년 전 복무분은 뺌
+  const cand = gap + milM;
+  if (cand > 0 && !$('#avail').dataset.touched) { $('#avail').value = Math.min(MAXM, cand); $('#useM').value = Math.min(MAXM, cand); }
+  const parts = [gap ? `보험료가 빠진 기간 ${gap}개월` : '', milM ? `군 복무 ${milM}개월` : ''].filter(Boolean).join(' + ');
+  if (cand > 0) $('#m1').innerHTML += `<div class="note">추납 후보: <b>${parts}${gap && milM ? ` = ${cand}개월` : ''}</b>. 공단에서 '추납 가능'으로 나오는 기간을 모두 합쳐 최대 119개월까지 채울 수 있어요 — 아래 2단계에 ${Math.min(MAXM, cand)}개월로 넣어 두었습니다.${cand > MAXM ? ' (한도 119개월을 넘어 119개월로 넣음)' : ''}</div>`;
+  else $('#m1').innerHTML += `<div class="note">빠진 기간과 군 복무 기간이 없다고 하셨어요. 실직·휴직·경력단절 기간이 있었다면 추납할 수 있는지 공단에서 한 번 확인해 보세요.</div>`;
+  if (milType === 'enl' && milM) $('#m1').innerHTML += `<div class="note">🪖 군 복무 추납은 보험료를 빠짐없이 냈어도, 처음 가입하기 전에 복무했어도 신청할 수 있습니다. 지금 국민연금에 가입해 보험료를 내고 있어야 하고, 병적증명서(또는 병역사항이 나온 주민등록초본)가 필요합니다. 공단이 따로 알려 주지 않으니 직접 신청해야 해요.${milEnd >= 2008 ? ' 2008년 이후 입대했다면 6개월(2026년 이후 전역은 최대 12개월)을 무료로 인정하는 군 복무 크레딧도 있으니, 겹치는 기간은 공단에서 확인하세요.' : ''}</div>`;
+  if (milType === 'enl' && milM0 && !milM) $('#m1').innerHTML += `<div class="note warn">1988년 이전 복무 기간은 국민연금 시행 전이라 추납할 수 없습니다.</div>`;
+  if (milType === 'off') $('#m1').innerHTML += `<div class="note warn">장교·부사관 복무 기간은 군인연금 가입기간이라 국민연금 추납 대상이 아닙니다 (군인연금과 국민연금 연계는 공단에 문의).</div>`;
   $('#s2').scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (!$('#r2').hidden) render2();
 }
@@ -358,6 +375,9 @@ function autoPaid() {
 }
 $('#start').addEventListener('input', autoPaid);
 $('#gapM').addEventListener('input', autoPaid);
+$('#mil').addEventListener('change', () => { const on = $('#mil').value === 'enl'; $('#fMil').hidden = !on; $('#fMilY').hidden = !on; });
+$('#birth').addEventListener('input', () => { if (!$('#milY').dataset.touched) $('#milY').value = Math.round(num('#birth')) + 22; });
+$('#milY').addEventListener('input', e => { e.target.dataset.touched = '1'; });
 $('#kids').addEventListener('change', () => { $('#fFirst').hidden = +$('#kids').value < 1; });
 $('#hasGap').addEventListener('change', () => { $('#fGap').hidden = $('#hasGap').value !== 'yes'; autoPaid(); });
 autoPaid();
@@ -382,4 +402,4 @@ $('#themeBtn').addEventListener('click', () => {
 </body>
 </html>
 
-<!-- build 20261115-24452108 -->
+<!-- build 20261115-40202195 -->
