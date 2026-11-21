@@ -70,6 +70,9 @@ article p{margin:0 0 1em;word-break:keep-all}
 .ck dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15.5px;line-height:1.65}
 .ck dt{color:var(--mu);font-size:13.5px;white-space:nowrap;padding-top:2px}
 .ck dd{margin:0;word-break:keep-all}
+.ck ul.nw{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.ck ul.nw time{color:var(--futc);font-size:13px;font-variant-numeric:tabular-nums;margin-right:5px}
+.ck a.sx{display:inline;margin:0;overflow-wrap:anywhere}
 .st{display:inline-block;padding:2px 11px;border-radius:99px;font-size:13px;font-weight:700;border:1px solid var(--ln);color:var(--ink);white-space:nowrap}
 .st.s-hit{background:#6fd6a0;border-color:#6fd6a0;color:#06281a}
 .st.s-part{background:#f2c46d;border-color:#f2c46d;color:#2b1e03}
