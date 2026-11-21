@@ -1,2 +1,4 @@
 User-agent: *
+Allow: /timemachine/
 Disallow: /
+Sitemap: https://changhoonchoi-droid.github.io/timemachine/sitemap.xml

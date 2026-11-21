@@ -5,27 +5,36 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>2016 알파고와 이세돌 — 타임머신</title>
 <meta name="description" content="서울에서 열린 다섯 판의 바둑이 인공지능에 대한 세상의 생각을 바꿨습니다.">
+<link rel="canonical" href="https://changhoonchoi-droid.github.io/timemachine/e/alphago/">
+<meta property="og:site_name" content="타임머신">
+<meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="2016 알파고와 이세돌 — 타임머신">
 <meta property="og:description" content="서울에서 열린 다섯 판의 바둑이 인공지능에 대한 세상의 생각을 바꿨습니다.">
-<meta property="og:image" content="https://changhoonchoi-droid.github.io/timemachine/img/alphago.webp">
+<meta property="og:url" content="https://changhoonchoi-droid.github.io/timemachine/e/alphago/">
 <meta property="og:type" content="article">
+<meta property="og:image" content="https://changhoonchoi-droid.github.io/timemachine/og/alphago.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#090a10">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b0d14'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23e8b45a' stroke-width='3'/%3E%3Cpath d='M32 18v14l9 6' fill='none' stroke='%235fe3e6' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&display=swap">
-<link rel="stylesheet" href="../../tm.css?v=370023e2">
+<link rel="stylesheet" href="../../tm.css?v=b1bdcc29">
 <style>body{--cc:#b9a2ff}</style>
 </head>
-<body class="c-tech">
+<body class="c-tech" data-y="2016">
 <nav class="bar"><a class="back" href="../../#alphago"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l3.6 2.4"/></svg>타임머신</a>
 <span class="sp"></span>
+<button type="button" class="nb" id="sh" aria-label="이 장면 공유하기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span class="tx">공유</span></button>
 <a class="nb" id="pv" href="../ligo/" aria-label="이전: 중력파 첫 검출">← 2015</a>
 <a class="nb" id="nx" href="../m87/" aria-label="다음: 첫 블랙홀 사진">2019 →</a></nav>
 <div class="strip" aria-hidden="true" style="--np:68.4%"><div class="l"></div><i class="dot" style="left:calc(16px + (100% - 32px) * 0.6203)"></i><span style="left:16px">1918</span><span style="left:calc(16px + (100% - 32px) * 0.6835);transform:translateX(-50%)">지금</span><span style="right:16px">2076</span></div>
 <header class="head">
- <div class="meta"><span class="cat"><i></i>기술</span><span>2016년 3월 9~15일</span></div>
+ <div class="meta"><span class="cat"><i></i>기술</span><span>2016년 3월 9~15일</span><span class="me" id="myage" hidden></span></div>
  <p class="year">2016</p>
  <h1>알파고와 이세돌</h1>
  <p class="lead">서울에서 열린 다섯 판의 바둑이 인공지능에 대한 세상의 생각을 바꿨습니다.</p>
+ <p class="wn">그해의 세계 · <b>인구 75.6억 명</b> · <b>기대수명 71.9세</b> · <a href="../../credits/#num">출처</a></p>
 </header>
 <figure><div class="fr" style="max-width:min(100%, calc(72vh * 1137 / 1101))"><img src="../../img/alphago.webp" width="1137" height="1101" alt="대국이 진행 중인 바둑판" fetchpriority="high"></div>
 <figcaption><b>대국이 진행 중인 바둑판</b><span class="cr">이미지: Goban1 · 퍼블릭 도메인 · <a href="https://commons.wikimedia.org/wiki/File:FloorGoban.JPG" rel="noopener" target="_blank">위키미디어 공용</a></span></figcaption></figure>
@@ -33,12 +42,15 @@
 <article>
 <h2>무슨 일이 있었나</h2><p>구글 딥마인드의 바둑 인공지능 알파고가 2016년 3월 서울에서 이세돌 9단과 다섯 판을 두어 4승 1패로 이겼습니다. 이세돌 9단은 넷째 판에서 78번째 수로 승리를 거뒀습니다.</p><h2>왜 전환점인가</h2><p>바둑은 경우의 수가 너무 많아 기계가 사람을 이기려면 10년은 더 걸린다는 것이 통념이었습니다. 신경망과 스스로 두며 배우는 강화 학습의 결합이 사람의 직관 영역까지 닿을 수 있음을 수억 명이 생중계로 지켜봤습니다.</p><h2>그 뒤 이어진 일</h2><p>이듬해 사람의 기보 없이 스스로 배운 알파고 제로가 나왔고, 같은 방법은 단백질 구조 예측(알파폴드)으로 옮겨 갔습니다. 한국에서는 이 대국이 인공지능 투자와 교육 논의의 출발점이 됐습니다.</p>
 <h2>영상으로 보기</h2><div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/L30w6VDPiAg" title="AI를 무너뜨린 단 한 수, 이세돌이 전하는 알파고 대국 비하인드｜직접 상대해 봤기 때문에 말할 수 있는 인공지능의 무서움｜시대목격｜#골라듄다큐" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><p class="vcap">EBSDocumentary (EBS 다큐) — AI를 무너뜨린 단 한 수, 이세돌이 전하는 알파고 대국 비하인드｜직접 상대해 봤기 때문에 말할 수 있는 인공지능의 무서움｜시대목격｜#골라듄다큐 · <a href="https://www.youtube.com/watch?v=L30w6VDPiAg" target="_blank" rel="noopener">유튜브에서 보기</a></p>
+<section class="kr"><h2>같은 해 한국에서는</h2><p><b>촛불 집회와 탄핵 소추</b> — 가을부터 주말마다 촛불 집회가 이어졌고, 12월 9일 국회가 대통령 탄핵 소추안을 통과시켰습니다.</p><a href="https://ko.wikipedia.org/wiki/%EB%B0%95%EA%B7%BC%ED%98%9C_%EB%8C%80%ED%86%B5%EB%A0%B9_%ED%83%84%ED%95%B5" target="_blank" rel="noopener">위키백과 「박근혜 대통령 탄핵」 ↗</a></section>
+<section class="qq"><h2>생각해 볼 질문</h2><p>기계가 사람보다 잘하게 된 일을 사람이 계속하는 까닭은 무엇일까요?</p></section>
 <h2>근거 자료</h2>
 <ul class="src"><li><a href="https://ko.wikipedia.org/wiki/%EC%95%8C%ED%8C%8C%EA%B3%A0_%EB%8C%80_%EC%9D%B4%EC%84%B8%EB%8F%8C" target="_blank" rel="noopener"><span class="k">위키백과</span><span class="t">알파고 대 이세돌</span><span class="d">ko.wikipedia.org ↗</span></a></li><li><a href="https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol" target="_blank" rel="noopener"><span class="k">Wikipedia</span><span class="t">AlphaGo versus Lee Sedol</span><span class="d">en.wikipedia.org ↗</span></a></li></ul>
 </article>
+<section class="flow"><h2>이어지는 흐름</h2><div class="fl"><h3>계산하는 기계<a href="../../#th=compute">이 흐름만 시간 여행 →</a></h3><p class="d">진공관에서 칩으로, 칩에서 스스로 배우는 기계로. 계산이 싸질 때마다 할 수 있는 일이 달라졌습니다.</p><div class="chain"><a class="nd c-tech" href="../../e/eniac/"><span class="ph"><img src="../../img/eniac_s.webp" width="720" height="532" alt="" loading="lazy" decoding="async"></span><span class="yr">1946</span><span class="tt">전자식 컴퓨터 에니악</span></a><a class="nd c-tech" href="../../e/transistor/"><span class="gy" aria-hidden="true">1년</span><span class="ph"><img src="../../img/transistor_s.webp" width="720" height="832" alt="" loading="lazy" decoding="async"></span><span class="yr">1947</span><span class="tt">트랜지스터 발명</span></a><a class="nd c-tech" href="../../e/intel4004/"><span class="gy" aria-hidden="true">24년</span><span class="ph"><img src="../../img/intel4004_s.webp" width="720" height="480" alt="" loading="lazy" decoding="async"></span><span class="yr">1971</span><span class="tt">마이크로프로세서</span></a><a class="nd c-tech" href="../../e/ibmpc/"><span class="gy" aria-hidden="true">10년</span><span class="ph"><img src="../../img/ibmpc_s.webp" width="720" height="480" alt="" loading="lazy" decoding="async"></span><span class="yr">1981</span><span class="tt">개인용 컴퓨터</span></a><a class="nd c-tech" href="../../e/alexnet/"><span class="gy" aria-hidden="true">31년</span><span class="ph"><img src="../../img/alexnet_s.webp" width="720" height="480" alt="" loading="lazy" decoding="async"></span><span class="yr">2012</span><span class="tt">딥러닝 혁명</span></a><a class="nd c-tech cur" href="../../e/alphago/" aria-current=page><span class="gy" aria-hidden="true">4년</span><span class="ph"><img src="../../img/alphago_s.webp" width="720" height="697" alt="" loading="lazy" decoding="async"></span><span class="yr">2016</span><span class="tt">알파고와 이세돌</span></a><a class="nd c-tech" href="../../e/chatgpt/"><span class="gy" aria-hidden="true">6년</span><span class="ph"><img src="../../img/chatgpt_s.webp" width="720" height="405" alt="" loading="lazy" decoding="async"></span><span class="yr">2022</span><span class="tt">챗GPT와 생성형 인공지능</span></a><a class="nd c-sci" href="../../e/riemann/"><span class="gy" aria-hidden="true">4년</span><span class="ph"><img src="../../img/riemann_s.webp" width="720" height="956" alt="" loading="lazy" decoding="async"></span><span class="yr">2026</span><span class="tt">리만 가설 — 인공지능의 증명 발표</span></a><a class="nd c-tech fut" href="../../e/f-aisci/"><span class="gy" aria-hidden="true">4년</span><span class="ph"><img src="../../img/f-aisci_s.webp" width="720" height="590" alt="" loading="lazy" decoding="async"><span class="tag">예측</span></span><span class="yr">2030</span><span class="tt">인공지능 연구자</span></a><a class="nd c-tech fut" href="../../e/f-quantum/"><span class="gy" aria-hidden="true">3년</span><span class="ph"><img src="../../img/f-quantum_s.webp" width="720" height="500" alt="" loading="lazy" decoding="async"><span class="tag">예측</span></span><span class="yr">2033</span><span class="tt">양자 컴퓨터와 암호 대전환</span></a><a class="nd c-tech fut" href="../../e/f-robot/"><span class="gy" aria-hidden="true">2년</span><span class="ph"><img src="../../img/f-robot_s.webp" width="720" height="540" alt="" loading="lazy" decoding="async"><span class="tag">예측</span></span><span class="yr">2035</span><span class="tt">운전대 없는 차, 일하는 로봇</span></a><a class="nd c-eco fut" href="../../e/f-work/"><span class="gy" aria-hidden="true">7년</span><span class="ph"><img src="../../img/f-work_s.webp" width="720" height="479" alt="" loading="lazy" decoding="async"><span class="tag">예측</span></span><span class="yr">2042</span><span class="tt">일의 재정의</span></a></div></div></section>
 <div class="pn"><a class="pv" href="../ligo/"><img src="../../img/ligo_s.webp" alt="" loading="lazy" width="68" height="68"><span class="x"><small>← 이전</small><b><span class="yy">2015</span> 중력파 첫 검출</b></span></a><a class="nx" href="../m87/"><img src="../../img/m87_s.webp" alt="" loading="lazy" width="68" height="68"><span class="x"><small>다음 →</small><b><span class="yy">2019</span> 첫 블랙홀 사진</b></span></a></div>
 <section class="rel"><h2>기술 분야의 다른 장면</h2><div class="tiles"><a class="g c-tech" href="../../e/iphone/"><span class="ph"><img src="../../img/iphone_s.webp" width="720" height="480" alt="1세대 아이폰의 뒷면" loading="lazy" decoding="async"></span><span class="yr">2007</span><span class="tt">스마트폰</span></a><a class="g c-tech" href="../../e/alexnet/"><span class="ph"><img src="../../img/alexnet_s.webp" width="720" height="480" alt="엔비디아 지포스 GTX 580 그래픽 칩의 내부 — 알렉스넷은 이 그래픽 카드 두 장으로 학습했습니다" loading="lazy" decoding="async"></span><span class="yr">2012</span><span class="tt">딥러닝 혁명</span></a><a class="g c-tech" href="../../e/chatgpt/"><span class="ph"><img src="../../img/chatgpt_s.webp" width="720" height="405" alt="데이터 센터의 서버. 생성형 인공지능은 이런 시설에서 돌아갑니다" loading="lazy" decoding="async"></span><span class="yr">2022</span><span class="tt">챗GPT와 생성형 인공지능</span></a><a class="g c-tech fut" href="../../e/f-aisci/"><span class="ph"><img src="../../img/f-aisci_s.webp" width="720" height="590" alt="미국 오크리지 국립연구소의 슈퍼컴퓨터 &#x27;프런티어&#x27;" loading="lazy" decoding="async"><span class="tag">예측</span></span><span class="yr">2030</span><span class="tt">인공지능 연구자</span></a></div></section>
-<footer class="foot"><p><a href="../../#alphago">타임라인으로 돌아가기</a> · <a href="../../credits/">사진 출처 모음</a></p></footer>
-<script>document.addEventListener('keydown',function(e){if(e.altKey||e.ctrlKey||e.metaKey)return;var a=e.key==='ArrowLeft'?'pv':e.key==='ArrowRight'?'nx':'';var el=a&&document.getElementById(a);if(el)location.href=el.href});</script>
+<footer class="foot"><p><a href="../../#alphago">타임라인으로 돌아가기</a> · <a href="../../review/">예측 점검표</a> · <a href="../../credits/">사진·숫자·지도 출처</a></p></footer>
+<script src="../../sub.js?v=b1bdcc29" defer></script>
 </body>
 </html>
