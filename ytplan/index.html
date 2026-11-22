@@ -1,46 +1,31 @@
-<!doctype html>
-<html lang="ko"><head><meta charset="utf-8">
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<title>유튜브 채널 기획</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<style>
-:root{--bg:#f4f6f9;--card:#fff;--tx:#151922;--mu:#677084;--ln:#e3e7ee;--ac:#3b5bdb;--ac2:#edf1ff;--up:#d6303a;--dn:#1f6fd6;--ok:#12805c;--okb:#e2f5ec;--warn:#b25e00;--warnb:#fff1dc;--bad:#c62f3a;--badb:#fde8ea}
-@media(prefers-color-scheme:dark){:root{--bg:#0e1118;--card:#171b25;--tx:#e8ebf2;--mu:#98a1b3;--ln:#283041;--ac:#8ea7ff;--ac2:#1d2540;--up:#ff6b74;--dn:#6aa5ff;--ok:#4fd1a5;--okb:#15322a;--warn:#f1b45a;--warnb:#3a2c14;--bad:#ff7b86;--badb:#3a1b20}}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 "Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
-a{color:var(--ac);text-decoration:none}.wrap{max-width:980px;margin:0 auto;padding:0 16px}.wrap.wide{max-width:1180px}
-.muted{color:var(--mu)}.small{font-size:13px}
-.topbar{background:var(--card);border-bottom:1px solid var(--ln);font-size:14px;font-weight:600}.topbar .wrap{padding:10px 16px}
-h1{font-size:clamp(24px,4.5vw,32px);letter-spacing:-.02em;margin:22px 0 4px}
-.card{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:18px 20px;margin:14px 0;scroll-margin-top:12px}
-.card h2{font-size:20px;margin:0 0 8px}.card h3{font-size:16px;margin:14px 0 6px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.chips a,.chip{font-size:13.5px;font-weight:600;background:var(--card);border:1px solid var(--ln);border-radius:99px;padding:3px 11px;color:var(--tx)}
-.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;background:var(--ac2);color:var(--ac)}
-.tag.up{background:var(--badb);color:var(--up)}.tag.dn{background:#e6effc;color:var(--dn)}.tag.ok{background:var(--okb);color:var(--ok)}.tag.warn{background:var(--warnb);color:var(--warn)}
-.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--ln);padding:6px 8px;text-align:left;vertical-align:top}
-th{color:var(--mu);font-weight:700;white-space:nowrap}td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-ul.tree{list-style:none;padding:0;margin:8px 0}ul.tree>li{position:relative;padding-left:16px;margin:8px 0}
-ul.tree>li::before{content:"";position:absolute;left:1px;top:.65em;width:7px;height:7px;border-radius:2px;background:var(--ac)}
-ul.tree .hd{font-weight:800}ul.tree ul{margin:3px 0 0;padding-left:18px}ul.tree ul li{font-size:15px;margin:2px 0}
-details{border:1px solid var(--ln);border-radius:10px;margin:10px 0;padding:0 12px}summary{cursor:pointer;font-weight:700;padding:8px 0}
-.foot{color:var(--mu);font-size:12.5px;text-align:center;padding:24px 16px 40px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0}
-.kpi{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px}.kpi b{display:block;font-size:24px;letter-spacing:-.01em}.kpi span{font-size:13px;color:var(--mu)}
-@media(max-width:640px){.card{padding:14px}}
-
-.grp h2{font-size:18px;margin:26px 0 10px}
-.pin{margin:0}.pin .tile{border:2px solid var(--ac)}.pin .tm{margin:6px 4px 0}
-.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.tile{display:block;background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:16px 18px;color:var(--tx);transition:transform .12s,border-color .12s}
-.tile:hover{transform:translateY(-2px);border-color:var(--ac)}
-.tt{font-weight:800;font-size:17px}.td{font-size:13.5px;color:var(--mu);margin:2px 0 8px}
-.pv{font-size:14px;margin-bottom:6px}.tm{font-size:12.5px;color:var(--ac);font-weight:700}
-ul.arch{list-style:none;margin:0;padding:0}ul.arch li{border-bottom:1px solid var(--ln);padding:9px 0}
-ul.arch a{color:var(--tx);font-weight:600}.dt{display:inline-block;min-width:96px;color:var(--ac);font-size:13.5px}
-.sm{font-size:13.5px;color:var(--mu);margin:2px 0 0 96px}
-@media(max-width:640px){.sm{margin-left:0}}
-</style></head>
-<body><nav class="topbar"><div class="wrap"><a href="https://changhoonchoi-droid.github.io/">🏠 리포트 홈</a> › 유튜브 채널 기획</div></nav>
-<main class="wrap"><h1>유튜브 채널 기획</h1><p class="muted">노후·연금 계산 채널 첫 4주 기획안 등 · 1건</p><div class="card"><ul class="arch"><li><a href="https://changhoonchoi-droid.github.io/ytplan/pension-4weeks/"><span class="dt">2026-11-15</span>연금계산TV — 첫 4주 기획안</a><div class="sm">국민연금 추납 → 은퇴 생활비 → 연금계좌 세금 → 펀드 MDD, 롱폼 4·쇼츠 12</div></li></ul></div></main>
-<footer class="foot">AI 업무 리포트 · 2026-11-22 09:39 생성 · 투자 권유가 아닙니다</footer>
-</body></html>
+<title>🔒 유튜브 채널 기획</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0f1320;color:#e8ebf2;
+font-family:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif}
+.box{width:min(380px,90vw);padding:28px;border-radius:18px;background:#181d2c;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+h1{font-size:20px;margin:0 0 4px}p{color:#9aa3b5;font-size:14px;margin:0 0 16px}
+input[type=password]{width:100%;box-sizing:border-box;font-size:17px;padding:12px 14px;border-radius:10px;border:1px solid #2c3449;background:#0f1320;color:#fff}
+button{width:100%;margin-top:10px;font-size:16px;font-weight:700;padding:12px;border:0;border-radius:10px;background:#5b7cff;color:#fff;cursor:pointer}
+label{display:flex;gap:6px;align-items:center;font-size:13px;color:#9aa3b5;margin-top:12px}#e{color:#ff7b8a;min-height:18px;margin:10px 0 0}
+#w{display:none;color:#9aa3b5;font-size:14px}</style></head>
+<body><div class="box" id="g"><h1>🔒 개인 리포트</h1><p>유튜브 채널 기획</p>
+<form id="f"><input id="p" type="password" placeholder="암호" autocomplete="current-password" autofocus><button>열기</button></form>
+<label><input type="checkbox" id="r" checked> 이 기기에서 암호 기억</label><p id="e"></p></div>
+<p id="w">여는 중…</p>
+<script>
+const D={"salt": "JUmJ6DEcSvRvc77DeYi+zQ==", "iv": "MyAFaAWpQ4B9r+CR", "ct": "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", "it": 200000, "k": "hub-pw"},K=D.k||"hub-pw";
+const b=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function dec(pw){const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
+const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b(D.salt),iterations:D.it,hash:"SHA-256"},k,{name:"AES-GCM",length:256},false,["decrypt"]);
+return new TextDecoder().decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:b(D.iv)},key,b(D.ct)));}
+async function fresh(){try{const r=await fetch(location.pathname+"?t="+Date.now(),{cache:"no-store"});
+const m=(await r.text()).match(/const D=(\{.*?\})[,;]/);if(m)Object.assign(D,JSON.parse(m[1]));}catch(_){}}
+async function go(pw,remember,auto){document.getElementById("w").style.display="block";
+try{await fresh();const h=await dec(pw);try{if(remember)localStorage.setItem(K,pw);}catch(_){}
+const hash=location.hash;document.open();document.write(h);document.close();if(hash)setTimeout(()=>{location.hash="";location.hash=hash},50);}
+catch(err){document.getElementById("w").style.display="none";try{localStorage.removeItem(K)}catch(_){}
+if(!auto)document.getElementById("e").textContent="암호가 맞지 않습니다";}}
+document.getElementById("f").onsubmit=ev=>{ev.preventDefault();go(document.getElementById("p").value,document.getElementById("r").checked,false)};
+let s=null;try{s=localStorage.getItem(K)}catch(_){}if(s)go(s,true,true);
+</script></body></html>

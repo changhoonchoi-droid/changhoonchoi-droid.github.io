@@ -1,46 +1,31 @@
-<!doctype html>
-<html lang="ko"><head><meta charset="utf-8">
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<title>강의</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<style>
-:root{--bg:#f4f6f9;--card:#fff;--tx:#151922;--mu:#677084;--ln:#e3e7ee;--ac:#3b5bdb;--ac2:#edf1ff;--up:#d6303a;--dn:#1f6fd6;--ok:#12805c;--okb:#e2f5ec;--warn:#b25e00;--warnb:#fff1dc;--bad:#c62f3a;--badb:#fde8ea}
-@media(prefers-color-scheme:dark){:root{--bg:#0e1118;--card:#171b25;--tx:#e8ebf2;--mu:#98a1b3;--ln:#283041;--ac:#8ea7ff;--ac2:#1d2540;--up:#ff6b74;--dn:#6aa5ff;--ok:#4fd1a5;--okb:#15322a;--warn:#f1b45a;--warnb:#3a2c14;--bad:#ff7b86;--badb:#3a1b20}}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 "Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
-a{color:var(--ac);text-decoration:none}.wrap{max-width:980px;margin:0 auto;padding:0 16px}.wrap.wide{max-width:1180px}
-.muted{color:var(--mu)}.small{font-size:13px}
-.topbar{background:var(--card);border-bottom:1px solid var(--ln);font-size:14px;font-weight:600}.topbar .wrap{padding:10px 16px}
-h1{font-size:clamp(24px,4.5vw,32px);letter-spacing:-.02em;margin:22px 0 4px}
-.card{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:18px 20px;margin:14px 0;scroll-margin-top:12px}
-.card h2{font-size:20px;margin:0 0 8px}.card h3{font-size:16px;margin:14px 0 6px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.chips a,.chip{font-size:13.5px;font-weight:600;background:var(--card);border:1px solid var(--ln);border-radius:99px;padding:3px 11px;color:var(--tx)}
-.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;background:var(--ac2);color:var(--ac)}
-.tag.up{background:var(--badb);color:var(--up)}.tag.dn{background:#e6effc;color:var(--dn)}.tag.ok{background:var(--okb);color:var(--ok)}.tag.warn{background:var(--warnb);color:var(--warn)}
-.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--ln);padding:6px 8px;text-align:left;vertical-align:top}
-th{color:var(--mu);font-weight:700;white-space:nowrap}td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-ul.tree{list-style:none;padding:0;margin:8px 0}ul.tree>li{position:relative;padding-left:16px;margin:8px 0}
-ul.tree>li::before{content:"";position:absolute;left:1px;top:.65em;width:7px;height:7px;border-radius:2px;background:var(--ac)}
-ul.tree .hd{font-weight:800}ul.tree ul{margin:3px 0 0;padding-left:18px}ul.tree ul li{font-size:15px;margin:2px 0}
-details{border:1px solid var(--ln);border-radius:10px;margin:10px 0;padding:0 12px}summary{cursor:pointer;font-weight:700;padding:8px 0}
-.foot{color:var(--mu);font-size:12.5px;text-align:center;padding:24px 16px 40px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0}
-.kpi{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px}.kpi b{display:block;font-size:24px;letter-spacing:-.01em}.kpi span{font-size:13px;color:var(--mu)}
-@media(max-width:640px){.card{padding:14px}}
-
-.grp h2{font-size:18px;margin:26px 0 10px}
-.pin{margin:0}.pin .tile{border:2px solid var(--ac)}.pin .tm{margin:6px 4px 0}
-.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.tile{display:block;background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:16px 18px;color:var(--tx);transition:transform .12s,border-color .12s}
-.tile:hover{transform:translateY(-2px);border-color:var(--ac)}
-.tt{font-weight:800;font-size:17px}.td{font-size:13.5px;color:var(--mu);margin:2px 0 8px}
-.pv{font-size:14px;margin-bottom:6px}.tm{font-size:12.5px;color:var(--ac);font-weight:700}
-ul.arch{list-style:none;margin:0;padding:0}ul.arch li{border-bottom:1px solid var(--ln);padding:9px 0}
-ul.arch a{color:var(--tx);font-weight:600}.dt{display:inline-block;min-width:96px;color:var(--ac);font-size:13.5px}
-.sm{font-size:13.5px;color:var(--mu);margin:2px 0 0 96px}
-@media(max-width:640px){.sm{margin-left:0}}
-</style></head>
-<body><nav class="topbar"><div class="wrap"><a href="https://changhoonchoi-droid.github.io/">🏠 리포트 홈</a> › 강의</div></nav>
-<main class="wrap"><h1>강의</h1><p class="muted">직접 만든 업무 자동화 과정을 슬라이드·대본·영상으로 · 1건</p><div class="card"><ul class="arch"><li><a href="https://changhoonchoi-droid.github.io/lecture/telegram-to-blog/"><span class="dt">2026-11-22</span>🎓 따라 하며 만드는 텔레그램 → 블로그 자동 글쓰기</a><div class="sm">봇 만들기 → 채널 수집 → 프롬프트 설계(만들기·운영) → 검수 → 블로그스팟 발행 → 정기 실행까지 따라 하는 실습 강의 (🔒 수강생 암호)</div></li></ul></div></main>
-<footer class="foot">AI 업무 리포트 · 2026-11-22 09:39 생성 · 투자 권유가 아닙니다</footer>
-</body></html>
+<title>🔒 강의</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0f1320;color:#e8ebf2;
+font-family:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif}
+.box{width:min(380px,90vw);padding:28px;border-radius:18px;background:#181d2c;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+h1{font-size:20px;margin:0 0 4px}p{color:#9aa3b5;font-size:14px;margin:0 0 16px}
+input[type=password]{width:100%;box-sizing:border-box;font-size:17px;padding:12px 14px;border-radius:10px;border:1px solid #2c3449;background:#0f1320;color:#fff}
+button{width:100%;margin-top:10px;font-size:16px;font-weight:700;padding:12px;border:0;border-radius:10px;background:#5b7cff;color:#fff;cursor:pointer}
+label{display:flex;gap:6px;align-items:center;font-size:13px;color:#9aa3b5;margin-top:12px}#e{color:#ff7b8a;min-height:18px;margin:10px 0 0}
+#w{display:none;color:#9aa3b5;font-size:14px}</style></head>
+<body><div class="box" id="g"><h1>🔒 개인 리포트</h1><p>강의</p>
+<form id="f"><input id="p" type="password" placeholder="암호" autocomplete="current-password" autofocus><button>열기</button></form>
+<label><input type="checkbox" id="r" checked> 이 기기에서 암호 기억</label><p id="e"></p></div>
+<p id="w">여는 중…</p>
+<script>
+const D={"salt": "wlZFw360L1wOA/5mHtpQOw==", "iv": "MSZsRNivmOy/lDWh", "ct": "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", "it": 200000, "k": "hub-pw"},K=D.k||"hub-pw";
+const b=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function dec(pw){const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
+const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b(D.salt),iterations:D.it,hash:"SHA-256"},k,{name:"AES-GCM",length:256},false,["decrypt"]);
+return new TextDecoder().decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:b(D.iv)},key,b(D.ct)));}
+async function fresh(){try{const r=await fetch(location.pathname+"?t="+Date.now(),{cache:"no-store"});
+const m=(await r.text()).match(/const D=(\{.*?\})[,;]/);if(m)Object.assign(D,JSON.parse(m[1]));}catch(_){}}
+async function go(pw,remember,auto){document.getElementById("w").style.display="block";
+try{await fresh();const h=await dec(pw);try{if(remember)localStorage.setItem(K,pw);}catch(_){}
+const hash=location.hash;document.open();document.write(h);document.close();if(hash)setTimeout(()=>{location.hash="";location.hash=hash},50);}
+catch(err){document.getElementById("w").style.display="none";try{localStorage.removeItem(K)}catch(_){}
+if(!auto)document.getElementById("e").textContent="암호가 맞지 않습니다";}}
+document.getElementById("f").onsubmit=ev=>{ev.preventDefault();go(document.getElementById("p").value,document.getElementById("r").checked,false)};
+let s=null;try{s=localStorage.getItem(K)}catch(_){}if(s)go(s,true,true);
+</script></body></html>
