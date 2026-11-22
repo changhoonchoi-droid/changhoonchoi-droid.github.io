@@ -102,5 +102,5 @@
 :root[data-skin="calc"]:not([data-theme="light"]) .panel,:root[data-skin="calc"]:not([data-theme="light"]) .card{background:linear-gradient(160deg,rgba(20,24,38,.94),rgba(11,13,21,.94));border-radius:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
 :root[data-skin="calc"]:not([data-theme="light"]) .tm-home{background:rgba(12,14,22,.8)}
 
-@media(max-width:640px){:root[data-skin="ai"] .brand{font-size:16px}:root[data-skin~="rep"] .topbar .wrap{padding:10px 14px}:root[data-skin] .tm-brand{font-size:16px}:root[data-skin~="hub"] main>h1{margin-top:28px}}
+@media(max-width:640px){:root[data-skin="ai"] .brand{font-size:15px}:root[data-skin="ai"] .top nav a{margin-left:8px;font-size:13px}:root[data-skin~="rep"] .topbar .wrap{padding:10px 14px}:root[data-skin] .tm-brand{font-size:16px}:root[data-skin~="hub"] main>h1{margin-top:28px}}
 @media print{:root[data-skin]:not([data-theme="light"]) body::before,:root[data-skin]:not([data-theme="light"]) body::after{display:none}}
