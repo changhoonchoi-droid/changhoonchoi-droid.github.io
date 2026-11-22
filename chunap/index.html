@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html data-skin="calc" lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -15,7 +15,7 @@
   --c-now:#0072B2; --c-add:#E69F00; --c-net:#009E73;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark){
+@media (min-width:0px){
   :root:not([data-theme="light"]){
     --bg:#0f1517; --card:#172024; --ink:#e9f1f4; --ink2:#b4c4cb; --ink3:#7d8f97; --line:#2b3a40; --soft:#1d2a2f;
     --acc:#5cc0dd; --acc2:#8fd6ea; --good:#6cc596; --warn:#f0b355; --bad:#ff8a80;
@@ -78,8 +78,8 @@ tr.click{cursor:pointer}
 footer{color:var(--ink3);font-size:12.5px;text-align:center;padding:10px 16px 40px;max-width:900px;margin:0 auto}
 .theme{position:absolute;top:12px;right:14px;border:1px solid var(--line);background:var(--card);color:var(--ink2);border-radius:99px;padding:4px 10px;font:inherit;font-size:12.5px;cursor:pointer}
 </style>
-</head>
-<body>
+<style>html:not([data-theme="light"]){background:#07080d}</style><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&display=swap"><link rel="stylesheet" href="https://changhoonchoi-droid.github.io/assets/tm-skin.css"></head>
+<body><a class="tm-home" href="https://changhoonchoi-droid.github.io/"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 10 12 4l8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg><span>기업분석 PowerHouse</span></a>
 <button class="theme" id="themeBtn" type="button" aria-label="화면 밝기 바꾸기">🌓</button>
 <header class="hero">
   <div class="logo">
@@ -393,7 +393,7 @@ for (const id of ['#avail', '#useM', '#chInc', '#inst', '#lifeAge']) $(id).addEv
 const themeKey = 'chunap-theme';
 try { const t = localStorage.getItem(themeKey); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 $('#themeBtn').addEventListener('click', () => {
-  const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(min-width:0px)').matches;
   document.documentElement.dataset.theme = dark ? 'light' : 'dark';
   try { localStorage.setItem(themeKey, document.documentElement.dataset.theme); } catch (e) {}
   if (!$('#r2').hidden) render2();
@@ -402,4 +402,4 @@ $('#themeBtn').addEventListener('click', () => {
 </body>
 </html>
 
-<!-- build 20261115-40202195 -->
+<!-- build 20261122-64840723 -->
