@@ -1,59 +1,104 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
-<title>AI 업무 리포트</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#07080d"><title>기업분석 PowerHouse</title>
+<meta name="description" content="상장기업을 숫자로 읽는 기업분석과 퀀트 리포트, 연금 계산기와 읽을거리 — AI가 날마다 다시 채웁니다">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&display=swap">
 <style>
-:root{--bg:#f4f6f9;--card:#fff;--tx:#151922;--mu:#677084;--ln:#e3e7ee;--ac:#3b5bdb;--ac2:#edf1ff;--up:#d6303a;--dn:#1f6fd6;--ok:#12805c;--okb:#e2f5ec;--warn:#b25e00;--warnb:#fff1dc;--bad:#c62f3a;--badb:#fde8ea}
-@media(prefers-color-scheme:dark){:root{--bg:#0e1118;--card:#171b25;--tx:#e8ebf2;--mu:#98a1b3;--ln:#283041;--ac:#8ea7ff;--ac2:#1d2540;--up:#ff6b74;--dn:#6aa5ff;--ok:#4fd1a5;--okb:#15322a;--warn:#f1b45a;--warnb:#3a2c14;--bad:#ff7b86;--badb:#3a1b20}}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 "Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:anywhere}
-a{color:var(--ac);text-decoration:none}.wrap{max-width:980px;margin:0 auto;padding:0 16px}.wrap.wide{max-width:1180px}
-.muted{color:var(--mu)}.small{font-size:13px}
-.topbar{background:var(--card);border-bottom:1px solid var(--ln);font-size:14px;font-weight:600}.topbar .wrap{padding:10px 16px}
-h1{font-size:clamp(24px,4.5vw,32px);letter-spacing:-.02em;margin:22px 0 4px}
-.card{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:18px 20px;margin:14px 0;scroll-margin-top:12px}
-.card h2{font-size:20px;margin:0 0 8px}.card h3{font-size:16px;margin:14px 0 6px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.chips a,.chip{font-size:13.5px;font-weight:600;background:var(--card);border:1px solid var(--ln);border-radius:99px;padding:3px 11px;color:var(--tx)}
-.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;background:var(--ac2);color:var(--ac)}
-.tag.up{background:var(--badb);color:var(--up)}.tag.dn{background:#e6effc;color:var(--dn)}.tag.ok{background:var(--okb);color:var(--ok)}.tag.warn{background:var(--warnb);color:var(--warn)}
-.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--ln);padding:6px 8px;text-align:left;vertical-align:top}
-th{color:var(--mu);font-weight:700;white-space:nowrap}td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-ul.tree{list-style:none;padding:0;margin:8px 0}ul.tree>li{position:relative;padding-left:16px;margin:8px 0}
-ul.tree>li::before{content:"";position:absolute;left:1px;top:.65em;width:7px;height:7px;border-radius:2px;background:var(--ac)}
-ul.tree .hd{font-weight:800}ul.tree ul{margin:3px 0 0;padding-left:18px}ul.tree ul li{font-size:15px;margin:2px 0}
-details{border:1px solid var(--ln);border-radius:10px;margin:10px 0;padding:0 12px}summary{cursor:pointer;font-weight:700;padding:8px 0}
-.foot{color:var(--mu);font-size:12.5px;text-align:center;padding:24px 16px 40px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0}
-.kpi{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px}.kpi b{display:block;font-size:24px;letter-spacing:-.01em}.kpi span{font-size:13px;color:var(--mu)}
-@media(max-width:640px){.card{padding:14px}}
+:root{--bg:#07080d;--ink:#f3eee4;--mu:#a49f95;--ln:rgba(255,255,255,.12);--ac:#e8b45a;--cc:#e8b45a;
+ --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--serif:"Noto Serif KR","Nanum Myeongjo",Georgia,serif}
+*{box-sizing:border-box}
+html{background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.65;overflow-x:hidden;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:8px}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+ background:radial-gradient(1100px 620px at 50% 26%,#1a2440 0,#0d1120 46%,transparent 74%),radial-gradient(900px 520px at 8% 100%,#2a1d0c 0,transparent 62%),radial-gradient(900px 520px at 96% 88%,#231a0e 0,transparent 60%)}
+body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.2;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.7 0 0 0 -.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.top,.pvb,main,footer{position:relative;z-index:2}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-.grp h2{font-size:18px;margin:26px 0 10px}
-.pin{margin:0}.pin .tile{border:2px solid var(--ac)}.pin .tm{margin:6px 4px 0}
-.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.tile{display:block;background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:16px 18px;color:var(--tx);transition:transform .12s,border-color .12s}
-.tile:hover{transform:translateY(-2px);border-color:var(--ac)}
-.tt{font-weight:800;font-size:17px}.td{font-size:13.5px;color:var(--mu);margin:2px 0 8px}
-.pv{font-size:14px;margin-bottom:6px}.tm{font-size:12.5px;color:var(--ac);font-weight:700}
-ul.arch{list-style:none;margin:0;padding:0}ul.arch li{border-bottom:1px solid var(--ln);padding:9px 0}
-ul.arch a{color:var(--tx);font-weight:600}.dt{display:inline-block;min-width:96px;color:var(--ac);font-size:13.5px}
-.sm{font-size:13.5px;color:var(--mu);margin:2px 0 0 96px}
-@media(max-width:640px){.sm{margin-left:0}}
-</style></head>
-<body><nav class="topbar"><div class="wrap"><a href="https://changhoonchoi-droid.github.io/">🏠 리포트 홈</a></div></nav>
-<main class="wrap"><h1>AI 업무 리포트</h1>
-<p class="muted">매일 자동으로 만들어지는 투자·연금 리포트와 계산기, 읽을거리를 한곳에 모았습니다.</p>
-<section class="grp"><h2>📈 투자 리포트</h2><div class="tiles"><a class="tile" href="https://changhoonchoi-droid.github.io/quant/"><div class="tt">퀀트 전략 리포트</div>
-<div class="td">매일 20시 40분 · 전략별 상위 30개 기업 순위</div><div class="pv">퀀트 전략 리포트 2026-11-20</div><div class="tm">최근 2026-11-20 · 21건</div></a><a class="tile" href="https://changhoonchoi-droid.github.io/company/"><div class="tt">기업분석</div>
-<div class="td">상장기업을 실적·재무 숫자로 읽는 분석 리포트 · 새 기업이 계속 더해집니다</div><div class="pv">성우테크론 (045300)</div><div class="tm">최근 2026-11-22 · 300건</div></a><a class="tile" href="https://changhoonchoi-droid.github.io/semi/"><div class="tt">반도체 메모리 가격 모니터</div>
-<div class="td">평일 19시 40분 · TrendForce DRAM·NAND 현물·계약가 누적 추이</div><div class="pv">반도체 메모리 가격 모니터</div><div class="tm">최근 2026-11-20 · 1건</div></a><a class="tile" href="https://changhoonchoi-droid.github.io/fundcmp/"><div class="tt">펀드 비교</div>
-<div class="td">국내 공모펀드 5·10·20·30년 연평균 수익률과 MDD 비교</div><div class="pv">오래 묵힌 펀드 비교 — 5·10·20·30년 수익률과 MDD</div><div class="tm">최근 2026-11-15 · 1건</div></a></div></section><section class="grp"><h2>🏦 연금·노후 준비</h2><div class="tiles"><a class="tile" href="https://changhoonchoi-droid.github.io/pension/"><div class="tt">노후연금</div>
-<div class="td">매일 17시 · 국민연금·개인연금·퇴직연금·IRP·ISA·주택연금·배당·제도 소식을 항목별로 누적</div><div class="pv">개인연금 (68건)</div><div class="tm">최근 2026-11-20 · 10건</div></a><a class="tile" href="https://changhoonchoi-droid.github.io/baekse/"><div class="tt">백세곳간 — 은퇴 연금계산기</div>
-<div class="td">공개 계산기 · 연금·자산을 넣으면 100살까지 해마다 받을 돈과 생활비 비교 (댓글)</div><div class="tm">바로 가기</div></a><a class="tile" href="https://changhoonchoi-droid.github.io/chunap/"><div class="tt">국민연금 빈칸채우기 — 추납 계산기</div>
-<div class="td">공개 계산기 · 추납하면 연금이 얼마나 늘고 몇 살에 본전인지</div><div class="tm">바로 가기</div></a></div></section><section class="grp"><h2>📚 배움·문화</h2><div class="tiles"><a class="tile" href="https://changhoonchoi-droid.github.io/Invest-info/ai/"><div class="tt">AI 활용 따라하기</div>
-<div class="td">매일 14시 · AI 전문가 영상의 목표별·기능별 가이드</div><div class="tm">바로 가기</div></a><a class="tile" href="https://changhoonchoi-droid.github.io/movie/"><div class="tt">매불쇼 추천영화</div>
-<div class="td">매주 금 19시 · 금요일 영화 코너 추천작 누적 리스트·회차 정리</div><div class="pv">📋 전체 추천 리스트 (검색·필터)</div><div class="tm">최근 2026-11-20 갱신 · 10건</div></a><a class="tile" href="https://changhoonchoi-droid.github.io/timemachine/"><div class="tt">타임머신 — 인류 발전사</div>
-<div class="td">1918년부터 지금까지의 전환점과 앞으로 50년의 예측을 시간 여행하듯 보는 사이트</div><div class="tm">바로 가기</div></a></div></section>
-<p class="small muted" style="margin-top:28px;text-align:right"><a class="muted" href="https://changhoonchoi-droid.github.io/my/">🔒 관리자</a></p></main>
-<footer class="foot">AI 업무 리포트 · 2026-11-22 12:30 생성 · 투자 권유가 아닙니다</footer>
+.top{position:fixed;left:0;right:0;top:0;z-index:50;display:flex;align-items:center;gap:12px;padding:10px 18px;padding-top:max(10px,env(safe-area-inset-top));
+ background:linear-gradient(#07080dee,#07080d99 70%,#07080d00)}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:900;font-size:19px;letter-spacing:.02em;flex:none}
+.brand svg{color:var(--ac)}
+.nav{display:flex;gap:6px;margin:0 auto;overflow-x:auto;scrollbar-width:none;padding:2px}.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:#d8d3c8;padding:6px 14px;border:1px solid var(--ln);border-radius:99px;background:#0c0e16cc;transition:border-color .15s,color .15s}
+.nav a i{width:7px;height:7px;border-radius:50%;background:var(--cc)}.nav a:hover{border-color:var(--cc);color:var(--ink)}
+.lock{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--ln);background:#0c0e16cc;color:var(--mu);font-size:14px}
+.lock:hover{color:var(--ink);border-color:var(--mu)}
+.pvb{margin-top:58px;padding:8px 18px;text-align:center;font-size:13px;font-weight:600;color:#1b1407;background:var(--ac)}
+
+.hero{position:relative;min-height:min(92vh,820px);display:grid;place-items:center;text-align:center;padding:96px 20px 56px;overflow:hidden}
+.ghost{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);font-family:var(--serif);font-weight:900;font-size:clamp(150px,34vw,460px);line-height:1;letter-spacing:-.02em;
+ color:transparent;-webkit-text-stroke:1px rgba(232,180,90,.2);white-space:nowrap;font-variant-numeric:tabular-nums;user-select:none;pointer-events:none}
+.hero .in{position:relative}
+.kick{font-size:14px;font-weight:700;letter-spacing:.42em;color:var(--ac);text-indent:.42em}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(44px,10.4vw,116px);line-height:1.08;margin:.14em 0 .2em;letter-spacing:.01em;text-shadow:0 0 60px #000}
+.hero h1 em{display:block;font-style:normal;color:var(--ac)}
+.hero p{margin:0 auto;max-width:34em;color:#cfc9bd;font-size:clamp(15.5px,2.1vw,18px)}
+.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:26px 0 0}
+.stats span{font-size:13.5px;font-weight:600;color:#d8d3c8;padding:6px 14px;border-radius:99px;border:1px solid var(--ln);background:#0c0e16cc}
+.stats b{font-family:var(--serif);font-weight:900;color:var(--ac);font-size:16px;margin-right:5px;font-variant-numeric:tabular-nums}
+.cue{display:block;margin:34px auto 0;width:30px;height:30px;color:var(--ac);animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(7px)}}
+
+.sec{padding-top:34px;padding-bottom:18px;scroll-margin-top:60px}
+.sh{display:flex;align-items:baseline;gap:14px;margin:0 0 18px;border-bottom:1px solid var(--ln);padding-bottom:12px}
+.sh .no{font-family:var(--serif);font-weight:900;font-size:34px;line-height:1;color:var(--cc);font-variant-numeric:tabular-nums}
+.sh h2{font-family:var(--serif);font-weight:900;font-size:clamp(24px,4.4vw,32px);margin:0;letter-spacing:.01em}
+.sh small{margin-left:auto;font-size:13px;color:var(--mu)}
+
+.rail{list-style:none;margin:0;padding:0;border-left:1px solid var(--ln)}
+.rail li{position:relative;padding:0 0 4px 22px}
+.rail li::before{content:"";position:absolute;left:-5px;top:17px;width:9px;height:9px;border-radius:50%;background:var(--cc);box-shadow:0 0 0 4px #07080d}
+.rail a{display:grid;grid-template-columns:86px 148px 1fr;gap:14px;align-items:baseline;padding:9px 12px;border-radius:12px;transition:background .15s}
+.rail a:hover{background:#ffffff0d}
+.rail .dt{font-family:var(--serif);font-weight:900;font-size:19px;color:var(--cc);font-variant-numeric:tabular-nums}
+.rail .sc{font-size:13px;font-weight:700;color:var(--mu)}.rail .ti{font-size:16px;font-weight:600}
+@media(max-width:700px){.rail a{grid-template-columns:64px 1fr;row-gap:0}.rail .ti{grid-column:2}.rail .dt{grid-row:span 2;font-size:17px}}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.cards.c2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.cards,.cards.c2{grid-template-columns:repeat(2,1fr)}}
+.cd{position:relative;display:flex;flex-direction:column;min-height:214px;padding:22px 22px 18px;border-radius:18px;border:1px solid var(--ln);overflow:hidden;
+ background:linear-gradient(160deg,#141826e6,#0b0d15e6);transition:transform .2s,border-color .2s,box-shadow .2s}
+.cd::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--cc),transparent 70%);opacity:.75}
+.cd:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--cc) 55%,transparent);box-shadow:0 18px 50px -22px var(--cc)}
+.cd .kk{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--cc)}
+.cd .kk i{width:7px;height:7px;border-radius:50%;background:var(--cc)}
+.cd h3{font-family:var(--serif);font-weight:900;font-size:23px;line-height:1.3;margin:8px 0 6px}
+.cd h3 small{display:block;font-family:var(--sans);font-weight:600;font-size:14px;color:var(--mu);margin-top:2px}
+.cd p{margin:0;font-size:14.5px;color:#c9c3b7}
+.cd .pv{margin:12px 0 0;padding:1px 0 1px 11px;border-left:2px solid var(--ln);font-size:14px;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cd .ft{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:16px;font-size:13px;color:var(--mu);font-variant-numeric:tabular-nums}
+.cd .go{font-weight:700;color:var(--cc);white-space:nowrap}.cd:hover .go{text-decoration:underline;text-underline-offset:4px}
+.cd.big{grid-column:1/-1;min-height:250px;justify-content:flex-end}
+.cd.big .gh{position:absolute;right:18px;top:50%;transform:translateY(-72%);font-family:var(--serif);font-weight:900;font-size:clamp(58px,11vw,138px);line-height:1;
+ color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--cc) 42%,transparent);white-space:nowrap;font-variant-numeric:tabular-nums;pointer-events:none}
+.cd.big h3{font-size:clamp(28px,5vw,42px)}.cd.big p{max-width:34em}.cd.big>*{position:relative}.cd.big .gh{position:absolute}
+
+footer{margin-top:40px;padding:26px 20px 44px;border-top:1px solid var(--ln);text-align:center;font-size:13px;color:var(--mu)}
+footer a{color:var(--mu);text-decoration:underline;text-underline-offset:3px}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.js .rv.on{opacity:1;transform:none}
+@media(max-width:640px){.cd.big{min-height:0}.cd.big .gh{position:static;transform:none;display:block;margin:2px 0 12px;font-size:clamp(38px,14vw,58px)}.brand span{display:none}.top{padding-left:12px;padding-right:12px;gap:8px}.cards,.cards.c2{grid-template-columns:1fr}.cd{min-height:0}.sh small{display:none}.hero{padding-top:84px}}
+@media(prefers-reduced-motion:reduce){.cue{animation:none}.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.cd{transition:none}}
+</style><script>document.documentElement.classList.add("js");
+addEventListener("DOMContentLoaded",function(){var els=document.querySelectorAll(".rv");
+if(!("IntersectionObserver" in window)){els.forEach(function(x){x.classList.add("on")});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("on");io.unobserve(en.target)}})},{rootMargin:"0px 0px -8% 0px"});
+els.forEach(function(x){io.observe(x)})});</script></head>
+<body>
+<header class="top"><a class="brand" href="https://changhoonchoi-droid.github.io/"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 10 12 4l8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg><span>기업분석 PowerHouse</span></a><nav class="nav"><a href="#s1" style="--cc:#e8b45a"><i></i>투자 리포트</a><a href="#s2" style="--cc:#5fd6b3"><i></i>연금·노후 준비</a><a href="#s3" style="--cc:#a99bff"><i></i>배움·문화</a></nav>
+<a class="lock" href="https://changhoonchoi-droid.github.io/my/" title="관리자" aria-label="관리자 화면">🔒</a></header>
+
+<main>
+<section class="hero"><div class="ghost" aria-hidden="true">11·22</div>
+<div class="in"><div class="kick">2026 · 매일 갱신</div><h1>기업분석<em>PowerHouse</em></h1><p>상장기업을 숫자로 읽는 기업분석과 퀀트 리포트, 연금 계산기와 읽을거리 — AI가 날마다 다시 채웁니다</p>
+<div class="stats"><span><b>300</b>기업분석 리포트</span><span><b>21</b>회 퀀트 전략 리포트</span><span><b>11.22</b>마지막 갱신</span></div>
+<a href="#new" aria-label="아래로"><svg class="cue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 9 7 7 7-7"/></svg></a></div></section>
+<section class="sec wrap" id="new"><div class="sh rv"><span class="no" style="font-size:22px">NEW</span><h2>방금 채워진 것</h2><small>분야별 가장 새 글</small></div>
+<ul class="rail rv"><li style="--cc:#e8b45a"><a href="https://changhoonchoi-droid.github.io/company-reports/r/045300-abbe2912f8/"><span class="dt">11.22</span><span class="sc">기업분석</span><span class="ti">성우테크론 (045300)</span></a></li><li style="--cc:#a99bff"><a href="https://changhoonchoi-droid.github.io/movie/list/"><span class="dt">11.20</span><span class="sc">매불쇼 추천영화</span><span class="ti">📋 전체 추천 리스트 (검색·필터)</span></a></li><li style="--cc:#e8b45a"><a href="https://changhoonchoi-droid.github.io/quant/20261120/"><span class="dt">11.20</span><span class="sc">퀀트 전략 리포트</span><span class="ti">퀀트 전략 리포트 2026-11-20</span></a></li><li style="--cc:#e8b45a"><a href="https://changhoonchoi-droid.github.io/semi/dashboard/"><span class="dt">11.20</span><span class="sc">반도체 메모리 가격 모니터</span><span class="ti">TrendForce DRAM·NAND 현물·계약가 누적 추이</span></a></li><li style="--cc:#5fd6b3"><a href="https://changhoonchoi-droid.github.io/pension/private/"><span class="dt">11.20</span><span class="sc">노후연금</span><span class="ti">개인연금 (68건)</span></a></li><li style="--cc:#e8b45a"><a href="https://changhoonchoi-droid.github.io/fundcmp/20261115/"><span class="dt">11.15</span><span class="sc">펀드 비교</span><span class="ti">오래 묵힌 펀드 비교 — 5·10·20·30년 수익률과 MDD</span></a></li></ul></section>
+<section class="sec wrap" id="s1" style="--cc:#e8b45a"><div class="sh rv"><span class="no">01</span><h2>투자 리포트</h2><small>4개</small></div><div class="cards c2"><a class="cd rv" href="https://changhoonchoi-droid.github.io/quant/"><span class="kk"><i></i>매일 20시 40분</span><h3>퀀트 전략 리포트</h3><p>전략별 상위 30개 기업 순위</p><div class="pv">퀀트 전략 리포트 2026-11-20</div><div class="ft"><span>최근 2026-11-20 · 21건</span><span class="go">보러 가기 →</span></div></a><a class="cd rv" href="https://changhoonchoi-droid.github.io/company/"><span class="kk"><i></i>리포트</span><h3>기업분석</h3><p>상장기업을 실적·재무 숫자로 읽는 분석 리포트 · 새 기업이 계속 더해집니다</p><div class="pv">성우테크론 (045300)</div><div class="ft"><span>최근 2026-11-22 · 300건</span><span class="go">보러 가기 →</span></div></a><a class="cd rv" href="https://changhoonchoi-droid.github.io/semi/"><span class="kk"><i></i>평일 19시 40분</span><h3>반도체 메모리 가격 모니터</h3><p>TrendForce DRAM·NAND 현물·계약가 누적 추이</p><div class="ft"><span>최근 2026-11-20</span><span class="go">보러 가기 →</span></div></a><a class="cd rv" href="https://changhoonchoi-droid.github.io/fundcmp/"><span class="kk"><i></i>리포트</span><h3>펀드 비교</h3><p>국내 공모펀드 5·10·20·30년 연평균 수익률과 MDD 비교</p><div class="pv">오래 묵힌 펀드 비교 — 5·10·20·30년 수익률과 MDD</div><div class="ft"><span>최근 2026-11-15</span><span class="go">보러 가기 →</span></div></a></div></section><section class="sec wrap" id="s2" style="--cc:#5fd6b3"><div class="sh rv"><span class="no">02</span><h2>연금·노후 준비</h2><small>3개</small></div><div class="cards"><a class="cd rv" href="https://changhoonchoi-droid.github.io/pension/"><span class="kk"><i></i>매일 17시</span><h3>노후연금</h3><p>국민연금·개인연금·퇴직연금·IRP·ISA·주택연금·배당·제도 소식을 항목별로 누적</p><div class="pv">개인연금 (68건)</div><div class="ft"><span>최근 2026-11-20 · 10건</span><span class="go">보러 가기 →</span></div></a><a class="cd rv" href="https://changhoonchoi-droid.github.io/baekse/"><span class="kk"><i></i>공개 계산기</span><h3>백세곳간<small>은퇴 연금계산기</small></h3><p>연금·자산을 넣으면 100살까지 해마다 받을 돈과 생활비 비교 (댓글)</p><div class="ft"><span>계산기</span><span class="go">열기 →</span></div></a><a class="cd rv" href="https://changhoonchoi-droid.github.io/chunap/"><span class="kk"><i></i>공개 계산기</span><h3>국민연금 빈칸채우기<small>추납 계산기</small></h3><p>추납하면 연금이 얼마나 늘고 몇 살에 본전인지</p><div class="ft"><span>계산기</span><span class="go">열기 →</span></div></a></div></section><section class="sec wrap" id="s3" style="--cc:#a99bff"><div class="sh rv"><span class="no">03</span><h2>배움·문화</h2><small>3개</small></div><div class="cards c2"><a class="cd rv" href="https://changhoonchoi-droid.github.io/Invest-info/ai/"><span class="kk"><i></i>매일 14시</span><h3>AI 활용 따라하기</h3><p>AI 전문가 영상의 목표별·기능별 가이드</p><div class="ft"><span>바로 가기</span><span class="go">열기 →</span></div></a><a class="cd rv" href="https://changhoonchoi-droid.github.io/movie/"><span class="kk"><i></i>매주 금 19시</span><h3>매불쇼 추천영화</h3><p>금요일 영화 코너 추천작 누적 리스트·회차 정리</p><div class="pv">📋 전체 추천 리스트 (검색·필터)</div><div class="ft"><span>최근 2026-11-20 · 10건</span><span class="go">보러 가기 →</span></div></a><a class="cd big rv" href="https://changhoonchoi-droid.github.io/timemachine/"><span class="gh" aria-hidden="true">1918—2076</span><span class="kk"><i></i>사이트</span><h3>타임머신<small>인류 발전사</small></h3><p>1918년부터 지금까지의 전환점과 앞으로 50년의 예측을 시간 여행하듯 보는 사이트</p><div class="ft"><span>스크롤하면 시간이 흐릅니다</span><span class="go">시간 여행 떠나기 →</span></div></a></div></section>
+</main>
+<footer>AI가 공개 자료를 모아 자동으로 만든 페이지입니다 · 투자 권유가 아닙니다 · 2026-11-22 13:16 갱신</footer>
 </body></html>

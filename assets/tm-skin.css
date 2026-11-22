@@ -1,0 +1,106 @@
+/* 타임머신 결 — 공개 페이지 공용 옷. 원본: _홈페이지/skin.py (여기를 직접 고치지 말 것) */
+:root[data-skin]:not([data-theme="light"]){background:#07080d;scrollbar-color:#2c3140 #07080d;
+ --tm-serif:"Noto Serif KR","Nanum Myeongjo",Georgia,serif;--tm-sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+:root[data-skin]:not([data-theme="light"]) body{background:transparent;font-family:var(--tm-sans)}
+:root[data-skin]:not([data-theme="light"]) body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+ background:radial-gradient(1100px 620px at 50% -6%,#1a2440 0,#0d1120 46%,transparent 74%),radial-gradient(900px 520px at 4% 100%,#2a1d0c 0,transparent 62%),radial-gradient(900px 520px at 98% 92%,#231a0e 0,transparent 60%)}
+:root[data-skin]:not([data-theme="light"]) body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.2;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.7 0 0 0 -.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+:root[data-skin]:not([data-theme="light"]) ::selection{background:rgba(232,180,90,.36)}
+:root[data-skin]:not([data-theme="light"]) :focus-visible{outline:2px solid #e8b45a;outline-offset:2px}
+:root[data-skin] .tm-brand{display:inline-flex;align-items:center;gap:8px;flex:none;font-family:var(--tm-serif,"Noto Serif KR",serif);font-weight:900;font-size:17px;letter-spacing:.01em;color:#f3eee4;text-decoration:none;white-space:nowrap}
+:root[data-skin] .tm-brand svg{color:#e8b45a;flex:none}
+
+/* ── 리포트 (hub.page · 기업분석) ── */
+:root[data-skin~="rep"]{--bg:#07080d;--card:#10131c;--tx:#f3eee4;--mu:#a49f95;--ln:rgba(255,255,255,.12);--ac:#e8b45a;--ac2:rgba(232,180,90,.13);
+ --up:#ff6b74;--dn:#6aa5ff;--ok:#4fd1a5;--okb:rgba(79,209,165,.13);--warn:#f1b45a;--warnb:rgba(241,180,90,.14);--bad:#ff7b86;--badb:rgba(255,123,134,.14);
+ --line:rgba(255,255,255,.12);--accent:#e8b45a;--muted:#a49f95;--soft:rgba(255,255,255,.07)}
+:root[data-skin~="rep"] body{color:var(--tx)}
+:root[data-skin~="rep"] a{color:var(--ac)}:root[data-skin~="rep"] a:hover{text-decoration:underline;text-underline-offset:3px}
+:root[data-skin~="rep"] .topbar{background:rgba(7,8,13,.55);border-bottom:1px solid var(--ln);font-size:14px;font-weight:600}
+:root[data-skin~="rep"] .topbar .wrap{display:flex;align-items:center;gap:9px;padding:11px 16px;color:var(--mu);min-width:0}
+:root[data-skin~="rep"] .topbar a:hover{text-decoration:none}
+:root[data-skin~="rep"] .topbar .tm-sep{opacity:.5;flex:none}
+:root[data-skin~="rep"] .topbar .tm-crumb{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#d8d3c8}
+:root[data-skin~="rep"] .topbar .tm-crumb a{color:#d8d3c8}:root[data-skin~="rep"] .topbar .tm-crumb a:hover{color:var(--ac)}
+:root[data-skin~="rep"] h1{font-family:var(--tm-serif);font-weight:900;letter-spacing:0;line-height:1.28}
+:root[data-skin~="rep"] .card{background:linear-gradient(160deg,rgba(20,24,38,.92),rgba(11,13,21,.92));border-color:var(--ln);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+:root[data-skin~="rep"] .card h2{font-family:var(--tm-serif);font-weight:900;font-size:22px;letter-spacing:.005em;line-height:1.4}
+:root[data-skin~="rep"] .kpi{background:rgba(255,255,255,.035);border-color:var(--ln);border-radius:14px}
+:root[data-skin~="rep"] .kpi b,:root[data-skin~="rep"] .kv{font-family:var(--tm-serif);font-weight:900;letter-spacing:0;font-variant-numeric:tabular-nums}
+:root[data-skin~="rep"] .chips a,:root[data-skin~="rep"] .chip{background:rgba(12,14,22,.8);border-color:var(--ln);color:#d8d3c8}
+:root[data-skin~="rep"] .chips a:hover,:root[data-skin~="rep"] .chip:hover{border-color:var(--ac);color:var(--tx);text-decoration:none}
+:root[data-skin~="rep"] .chip.on{background:var(--ac);border-color:var(--ac);color:#1b1407}
+:root[data-skin~="rep"] .tag.dn{background:rgba(106,165,255,.16)}
+:root[data-skin~="rep"] th{color:var(--mu);font-size:12.5px;letter-spacing:.03em;border-bottom-color:rgba(255,255,255,.24)}
+:root[data-skin~="rep"] tbody tr:hover td{background:rgba(255,255,255,.035)}
+:root[data-skin~="rep"] th[style*="background"],:root[data-skin~="rep"] td[style*="background:#f"]{background:rgba(255,255,255,.07)!important;color:var(--tx)!important}
+:root[data-skin~="rep"] th[style*="border"],:root[data-skin~="rep"] td[style*="border"]{border-color:var(--ln)!important}
+:root[data-skin~="rep"] details{border-color:var(--ln);background:rgba(255,255,255,.02)}
+:root[data-skin~="rep"] mark{background:rgba(232,180,90,.3);color:inherit;border-radius:3px;padding:0 2px}
+:root[data-skin~="rep"] hr{border:0;border-top:1px solid var(--ln)}
+:root[data-skin~="rep"] .foot,:root[data-skin~="rep"] body>footer,:root[data-skin~="rep"] main>footer{color:var(--mu);border-top:1px solid var(--ln);margin-top:36px;padding-top:22px}
+
+/* hub.page 로 만든 페이지 (퀀트·노후연금·반도체·펀드·영화·목록) */
+:root[data-skin~="hub"] main>h1{font-size:clamp(28px,5.4vw,44px);margin:36px 0 8px}
+:root[data-skin~="hub"] main>h1::before{content:"";display:block;width:46px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--ac),transparent);margin-bottom:16px}
+:root[data-skin~="hub"] main>h1+p{color:#cfc9bd;margin-top:0}
+:root[data-skin~="hub"] .tm-kick{margin:36px 0 0;font-size:13px;font-weight:700;letter-spacing:.34em;color:var(--ac)}
+:root[data-skin~="hub"] .tm-kick+h1{margin-top:8px}:root[data-skin~="hub"] .tm-kick+h1::before{display:none}
+:root[data-skin~="hub"] ul.arch li{border-bottom:1px solid var(--ln);padding:12px 2px}:root[data-skin~="hub"] ul.arch li:last-child{border-bottom:0}
+:root[data-skin~="hub"] ul.arch a{color:var(--tx);font-size:16.5px}:root[data-skin~="hub"] ul.arch a:hover{color:var(--ac);text-decoration:none}
+:root[data-skin~="hub"] ul.arch .dt{font-family:var(--tm-serif);font-weight:900;font-size:15px;color:var(--ac);font-variant-numeric:tabular-nums}
+:root[data-skin~="hub"] input[type=text],:root[data-skin~="hub"] input[type=search],:root[data-skin~="hub"] input:not([type]),:root[data-skin~="hub"] select{background:#0c0e16;color:var(--tx);border:1px solid var(--ln)}
+:root[data-skin~="hub"] .pn-tabs a{color:#d8d3c8;border:1px solid var(--ln);background:rgba(12,14,22,.8)}:root[data-skin~="hub"] .pn-tabs a:hover{border-color:var(--ac);text-decoration:none}
+:root[data-skin~="hub"] .pn-tabs a.on{background:var(--ac);border-color:var(--ac);color:#1b1407}
+:root[data-skin~="hub"] .pn-month{font-family:var(--tm-serif);font-weight:900;font-size:20px;margin-top:32px}
+:root[data-skin~="hub"] .pn-item,:root[data-skin~="hub"] .mv,:root[data-skin~="hub"] .card2{background:linear-gradient(160deg,rgba(20,24,38,.92),rgba(11,13,21,.92));border-color:var(--ln);border-radius:14px}
+:root[data-skin~="hub"] .pn-badge{background:rgba(255,255,255,.08);color:#d8d3c8}
+:root[data-skin~="hub"] .links a{background:rgba(12,14,22,.8);border:1px solid var(--ln);color:#d8d3c8}:root[data-skin~="hub"] .links a:hover{border-color:var(--ac);text-decoration:none}
+:root[data-skin~="hub"] .ctl{background:#07080d;border-bottom-color:var(--ln)}
+:root[data-skin~="hub"] .day h3{font-family:var(--tm-serif);font-weight:900;font-size:18px}
+:root[data-skin~="hub"] .mv .t a,:root[data-skin~="hub"] .card2 h3{color:var(--tx)}
+
+/* 기업분석 리포트 (company-reports) */
+:root[data-skin~="corp"] .top{background:transparent;border-bottom:1px solid var(--ln);padding:26px 0 20px}
+:root[data-skin~="corp"] .top h1{font-size:clamp(32px,6.4vw,52px);margin-top:8px}
+:root[data-skin~="corp"] .verdict{font-family:var(--tm-serif);font-weight:700;font-size:clamp(19px,3.2vw,24px);line-height:1.55}
+:root[data-skin~="corp"] .ret{background:rgba(255,255,255,.07)}
+:root[data-skin~="corp"] .nav{background:rgba(7,8,13,.84);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom-color:var(--ln)}
+:root[data-skin~="corp"] .nav a{background:rgba(12,14,22,.8);border-color:var(--ln);color:#d8d3c8}:root[data-skin~="corp"] .nav a:hover{border-color:var(--ac);color:var(--tx);text-decoration:none}
+:root[data-skin~="corp"] .ans{border-left:3px solid var(--ac);border-radius:4px 10px 10px 4px}
+:root[data-skin~="corp"] .qn{letter-spacing:.08em}
+:root[data-skin~="corp"] figure{border-color:var(--ln)}
+:root[data-skin~="corp"] ul.tree .hd{color:var(--tx)}
+
+/* ── AI 활용 따라하기 (Invest-info/ai — assets/style.css 위에) ── */
+:root[data-skin="ai"],:root[data-skin="ai"] body.ai{--bg:#07080d;--surface:#10131c;--text:#f3eee4;--muted:#a49f95;--line:rgba(255,255,255,.12);--chip:rgba(255,255,255,.08);--link:#e8b45a;
+ --accent:#a99bff;--accent-soft:rgba(169,155,255,.17)}
+:root[data-skin="ai"] .top{background:rgba(7,8,13,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+:root[data-skin="ai"] .brand{font-family:var(--tm-serif);font-weight:900;font-size:19px}
+:root[data-skin="ai"] .top nav a{color:#d8d3c8}:root[data-skin="ai"] .top nav a:hover{color:var(--text);text-decoration:none}
+:root[data-skin="ai"] .hero{padding-top:48px}
+:root[data-skin="ai"] .hero .date{letter-spacing:.2em;font-size:13px}
+:root[data-skin="ai"] .hero h1,:root[data-skin="ai"] main>h1{font-family:var(--tm-serif);font-weight:900;font-size:clamp(28px,5.2vw,46px);letter-spacing:0;line-height:1.3}
+:root[data-skin="ai"] .sec h2{font-family:var(--tm-serif);font-weight:900;font-size:24px;letter-spacing:0}
+:root[data-skin="ai"] .card,:root[data-skin="ai"] .brief,:root[data-skin="ai"] details.all,:root[data-skin="ai"] .vchip{background:linear-gradient(160deg,rgba(20,24,38,.92),rgba(11,13,21,.92));border-color:var(--line)}
+:root[data-skin="ai"] .card,:root[data-skin="ai"] .brief,:root[data-skin="ai"] details.all{border-radius:16px}
+:root[data-skin="ai"] .brief{border-left-color:var(--accent)}
+:root[data-skin="ai"] .card h3 a,:root[data-skin="ai"] .vbody h3 a{color:var(--text)}
+:root[data-skin="ai"] .toc{background:rgba(7,8,13,.9)}:root[data-skin="ai"] .toc a{background:rgba(12,14,22,.8)}:root[data-skin="ai"] .toc a:hover{border-color:var(--accent);text-decoration:none}
+:root[data-skin="ai"] .filters input,:root[data-skin="ai"] .filters select,:root[data-skin="ai"] .copy{background:#0c0e16}
+:root[data-skin="ai"] dialog{background:#10131c;color:var(--text);border:1px solid var(--line)}
+
+/* ── 계산기 (백세곳간 · 국민연금 빈칸채우기) ── */
+:root[data-skin="calc"] body{font-family:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+:root[data-skin="calc"] header.hero{padding-top:60px}
+:root[data-skin="calc"] .tm-home{position:absolute;left:14px;top:12px;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--ink2);text-decoration:none;
+ border:1px solid var(--line);border-radius:99px;padding:4px 12px 4px 9px;background:var(--card)}
+:root[data-skin="calc"] .tm-home svg{width:16px;height:16px;color:var(--acc)}:root[data-skin="calc"] .tm-home:hover{border-color:var(--acc)}
+:root[data-skin="calc"]:not([data-theme="light"]){--bg:#07080d;--card:#10131c;--ink:#f3eee4;--ink2:#cfc9bd;--ink3:#8f8a80;--line:rgba(255,255,255,.13);--soft:#171b27}
+:root[data-skin="calc"]:not([data-theme="light"]) header.hero{background:transparent}
+:root[data-skin="calc"]:not([data-theme="light"]) .logo{font-family:var(--tm-serif);font-weight:900;font-size:clamp(30px,6vw,44px);letter-spacing:0}
+:root[data-skin="calc"]:not([data-theme="light"]) .panel,:root[data-skin="calc"]:not([data-theme="light"]) .card{background:linear-gradient(160deg,rgba(20,24,38,.94),rgba(11,13,21,.94));border-radius:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+:root[data-skin="calc"]:not([data-theme="light"]) .tm-home{background:rgba(12,14,22,.8)}
+
+@media(max-width:640px){:root[data-skin="ai"] .brand{font-size:16px}:root[data-skin~="rep"] .topbar .wrap{padding:10px 14px}:root[data-skin] .tm-brand{font-size:16px}:root[data-skin~="hub"] main>h1{margin-top:28px}}
+@media print{:root[data-skin]:not([data-theme="light"]) body::before,:root[data-skin]:not([data-theme="light"]) body::after{display:none}}
